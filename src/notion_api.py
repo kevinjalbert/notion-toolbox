@@ -11,7 +11,7 @@ from config import notionToken, tagsDatabaseURL, tasksDatabaseURL, winsDatabaseU
 
 @cached(cache={})
 def client():
-    return NotionClient(token_v2=notionToken())
+    return NotionClient(token_v2=notionToken(), monitor=False)
 
 
 @cached(cache={})
