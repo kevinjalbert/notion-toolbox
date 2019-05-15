@@ -1,3 +1,8 @@
+##### CUSTOM #####
+data/config.json
+data/tags.json
+
+##### PYTHON #####
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
