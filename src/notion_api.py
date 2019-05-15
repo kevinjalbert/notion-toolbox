@@ -1,5 +1,6 @@
 #!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
 
+from cachetools import cached
 from datetime import datetime
 
 from notion.client import NotionClient
@@ -8,30 +9,37 @@ from notion.block import DividerBlock, TextBlock
 from config import notionToken, tagsDatabaseURL, tasksDatabaseURL, winsDatabaseURL, yearPageURL
 
 
+@cached(cache={})
 def client():
     return NotionClient(token_v2=notionToken())
 
 
+@cached(cache={})
 def tagsDatabase():
     return client().get_collection_view(tagsDatabaseURL())
 
 
+@cached(cache={})
 def tasksDatabase():
     return client().get_collection_view(tasksDatabaseURL())
 
 
+@cached(cache={})
 def winsDatabase():
     return client().get_collection_view(winsDatabaseURL())
 
 
+@cached(cache={})
 def currentDayTasksDatabase():
     return currentDay().children[2]
 
 
+@cached(cache={})
 def currentYear():
     return client().get_block(yearPageURL())
 
 
+@cached(cache={})
 def currentWeek():
     currentWeek = None
     currentDate = datetime.now()
@@ -50,6 +58,7 @@ def currentWeek():
     return currentWeek
 
 
+@cached(cache={})
 def currentDay():
     currentDay = None
     currentDate = datetime.now()
