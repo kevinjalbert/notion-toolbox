@@ -10,6 +10,7 @@ try:
     tasks = [{
         "uid": row.id,
         "title": "[" + row.status + "] " + row.title,
+        "subtitle": "Tags: " + ", ".join([row.title for row in row.tags]),
         "variables": {"taskName": row.title, "url": app_url(row.get_browseable_url())},
         "arg": row.get_browseable_url(),
         "match": row.title + " " + row.status + " " + " ".join([row.title for row in row.tags]),
