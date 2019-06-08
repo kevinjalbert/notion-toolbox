@@ -912,7 +912,7 @@
 	<key>createdby</key>
 	<string>Kevin Jalbert</string>
 	<key>description</key>
-	<string>Alfred workflow that uses notion-py to perform common tasks in Notion</string>
+	<string>A tailored Alfred Workflow that performs tasks using notion-py within the context of a specific Notion Template</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -2423,7 +2423,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>A tailored Alfred Workflow that performs tasks using notion-py (https://github.com/jamalex/notion-py) within the context of a specific Notion Template (https://www.notion.so/Week-Template-0a7ac4d03082417c929176b5ea1df07e) as described in https://kevinjalbert.com/my-weekly-notion-setup/.</string>
 	<key>uidata</key>
 	<dict>
 		<key>07009BD5-2488-4FAB-B290-E6B9B2FC0875</key>
@@ -3105,7 +3105,7 @@
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/kevinjalbert/alfred-notion</string>
 </dict>
