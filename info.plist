@@ -1358,7 +1358,7 @@
 				<key>keyword</key>
 				<string>:update</string>
 				<key>subtext</key>
-				<string>Pulls from database (approx. 5 seconds)</string>
+				<string>Pulls from database (approx. 3 seconds)</string>
 				<key>text</key>
 				<string>Update Tags File</string>
 				<key>withspace</key>
@@ -1844,6 +1844,8 @@
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -1880,7 +1882,7 @@
 			<key>uid</key>
 			<string>07009BD5-2488-4FAB-B290-E6B9B2FC0875</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2130,6 +2132,8 @@
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -2168,7 +2172,7 @@
 			<key>uid</key>
 			<string>29925A4E-45FD-469F-AEF9-92E5D1B2EF64</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2426,8 +2430,6 @@
 		<dict>
 			<key>colorindex</key>
 			<integer>2</integer>
-			<key>note</key>
-			<string>Might want to make this optional arg, which makes the results appear onload but we lose the placeholder</string>
 			<key>xpos</key>
 			<integer>1190</integer>
 			<key>ypos</key>
@@ -3100,8 +3102,10 @@
 			<integer>380</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string></string>
+	<string>1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/kevinjalbert/alfred-notion</string>
 </dict>
