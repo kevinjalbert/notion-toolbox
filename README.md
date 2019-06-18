@@ -53,7 +53,8 @@ Given the information we've taken note of in the last 2 sections, we can now con
 
 1. Find `./data/tags.sample.json`, and rename to `./data/tags.json`.
 2. Find `./data/config.sample.json`, and rename to `./data/config.json`.
-3. Fill the value out in `./data/config.json` with the Notion Token and Notion URLs.
+3. Fill the value out in `./data/config.json` with the Notion Token and Notion URLs:
+
 ```
   {
     "NOTION_TOKEN": "your-notion-token",
