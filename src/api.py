@@ -14,3 +14,7 @@ def add_note():
         return 'Succeceed in adding note', 200
     except Exception:
         return 'Failed in adding note', 500
+
+
+if __name__ == '__main__':
+    app.run()
