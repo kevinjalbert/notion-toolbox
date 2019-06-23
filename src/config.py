@@ -27,3 +27,8 @@ def winsDatabaseURL():
 @cached(cache={})
 def yearPageURL():
     return os.environ.get('YEAR_PAGE_URL')
+
+
+@cached(cache={})
+def importedTagURL():
+    return os.environ.get('IMPORTED_TAG_URL')
