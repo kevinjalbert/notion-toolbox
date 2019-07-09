@@ -36,6 +36,42 @@ _Note:_ The required environment variables mentioned in the below steps are outl
 3. `git push heroku master`
 4. Set all required environment variables via `heroku config:set xxxx=yyyy`
 
+### Setting up IFTTT Actions
+
+<details><summary>Click to view walkthrough (images)</summary>
+
+<br>
+
+This walkthrough demonstrates how to setup a IFTTT action to add a Notion Task.
+
+The main difference is that the webhook URL is either `/add_note` or `/add_task` in Step 6.
+
+#### Step 1 - Choose _Trigger_ Service (Google Assistant)
+
+![Step 1](./step1.png)
+
+#### Step 2 - Choose Google Assistant Trigger
+
+![Step 2](./step2.png)
+
+#### Step 3 - Complete Google Assistant Trigger Fields
+
+![Step 3](./step3.png)
+
+#### Step 4 - Choose _Action_ Service (Webhooks)
+
+![Step 4](./step4.png)
+
+#### Step 5 - Choose Webhooks Action
+
+![Step 5](./step5.png)
+
+#### Step 6 - Complete Webhook Action Fields
+
+![Step 6](./step6.png)
+
+</details>
+
 ## Author
 
 👤 **Kevin Jalbert**
