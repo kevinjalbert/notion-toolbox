@@ -23,6 +23,8 @@
 
 _Note:_ The required environment variables mentioned in the below steps are outlined in [kevinjalbert/alfred-notion](https://github.com/kevinjalbert/alfred-notion)'s section on [finding your Notion Token](https://github.com/kevinjalbert/alfred-notion#finding-your-notion-token) and [finding your Notion URLs](https://github.com/kevinjalbert/alfred-notion#finding-your-notion-urls).
 
+_Additional Note:_ You will want to set the `TZ` environment variable for your Heroku application to match your current timezone (i.e., `America/Toronto`). This will ensure that the correct day is used when creating a note or task.
+
 ### With Heroku Deploy Button
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
