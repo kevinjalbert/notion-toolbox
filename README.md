@@ -12,6 +12,10 @@
 
 ## Install
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Use the above button to deploy this application to [Heroku](https://heroku.com/). Otherwise:
+
 1. Clone the repository via `git clone git@github.com:kevinjalbert/notion-heroku.git`
 2. `heroku create`
 3. `git push heroku master`

@@ -1,0 +1,6 @@
+{
+  "name": "notion-heroku",
+  "description": "Heroku hosted application that performs Notion actions (i.e., new task, new note) based on voice requests via IFTTT Webhooks and Google Assistant.",
+  "repository": "https://github.com/kevinjalbert/notion-heroku",
+  "keywords": ["notion", "google assistant", "ifttt"]
+}
