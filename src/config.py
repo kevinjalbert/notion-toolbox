@@ -10,18 +10,8 @@ def notionToken():
 
 
 @cached(cache={})
-def tagsDatabaseURL():
-    return os.environ.get('TAGS_DATABASE_URL')
-
-
-@cached(cache={})
 def tasksDatabaseURL():
     return os.environ.get('TASKS_DATABASE_URL')
-
-
-@cached(cache={})
-def winsDatabaseURL():
-    return os.environ.get('WINS_DATABASE_URL')
 
 
 @cached(cache={})

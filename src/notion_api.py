@@ -1,12 +1,15 @@
 #!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
 
+# Heavily borrowed from https://github.com/kevinjalbert/alfred-notion/blob/v1.0.0/src/notion_api.py
+# TODO: Would be nice to replace this and the source material with a common package
+
 from cachetools import cached
 from datetime import datetime
 
 from notion.client import NotionClient
 from notion.block import DividerBlock, TextBlock
 
-from config import notionToken, tagsDatabaseURL, tasksDatabaseURL, winsDatabaseURL, yearPageURL
+from config import notionToken, tasksDatabaseURL, yearPageURL
 
 
 @cached(cache={})
@@ -15,23 +18,8 @@ def client():
 
 
 @cached(cache={})
-def tagsDatabase():
-    return client().get_collection_view(tagsDatabaseURL())
-
-
-@cached(cache={})
 def tasksDatabase():
     return client().get_collection_view(tasksDatabaseURL())
-
-
-@cached(cache={})
-def winsDatabase():
-    return client().get_collection_view(winsDatabaseURL())
-
-
-@cached(cache={})
-def currentDayTasksDatabase():
-    return currentDay().children[2]
 
 
 @cached(cache={})
