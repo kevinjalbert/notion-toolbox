@@ -7,6 +7,7 @@ from notion.client import NotionClient
 from notion.block import DividerBlock, TextBlock
 
 from config import notionToken, tagsDatabaseURL, tasksDatabaseURL, winsDatabaseURL, yearPageURL
+import disable_cache  # noqa: F401
 
 
 @cached(cache={})
