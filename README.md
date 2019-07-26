@@ -127,9 +127,10 @@ This keyword allows you to create a new task in your tasks database.
 
 ### :search
 
-This keyword allows you to search your current day's tasks, and be able to open it in Notion or change its status.
+This keyword allows you to search your tasks, and be able to open it in Notion or change its status.
 
-- Uses the filters of your current day's _Linked Database_ of tasks.
+- Search results are based on the view of the `TASKS_DATABASE_URL`.
+  - Ideally, you would have this being a view on the master task database that matches the filters of your current day's _Linked Database_ of tasks. This little optimization is done for speed reasons.
 - Searches the word boundaries of title/tags/status of a task.
 - When selecting a task it will open its Notion page.
   - Notion will become the forefront application.

@@ -30,11 +30,6 @@ def winsDatabase():
 
 
 @cached(cache={})
-def currentDayTasksDatabase():
-    return currentDay().children[2]
-
-
-@cached(cache={})
 def currentYear():
     return client().get_block(yearPageURL())
 

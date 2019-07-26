@@ -3,7 +3,7 @@
 import sys
 import json
 
-from notion_api import currentDayTasksDatabase
+from notion_api import tasksDatabase
 from utils import app_url
 
 try:
@@ -16,7 +16,7 @@ try:
         "match": row.title + " " + row.status + " " + " ".join([row.title for row in row.tags]),
         "copy": row.title,
         "largetype": row.title
-    } for row in currentDayTasksDatabase().views[0].default_query().execute()]
+    } for row in tasksDatabase().default_query().execute()]
 
     print(json.dumps({"items": tasks}))
 except Exception as e:
