@@ -11,6 +11,8 @@ from notion.block import DividerBlock, TextBlock
 
 from config import notionToken, tasksDatabaseURL, yearPageURL
 
+import disable_cache  # noqa: F401
+
 
 @cached(cache={})
 def client():
