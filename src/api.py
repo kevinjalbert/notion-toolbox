@@ -4,7 +4,22 @@ from notion_api import appendToCurrentDayNotes, tasksDatabase
 from config import importedTagURL
 
 from flask import Flask, request
+from flask_apscheduler import APScheduler
 app = Flask(__name__)
+
+
+class Config(object):
+    JOBS = [
+        {
+            'id': 'add_task_transitions',
+            'func': 'update_task_transitions:add_task_transitions',
+            'args': (),
+            'trigger': 'interval',
+            'seconds': 60
+        }
+    ]
+
+    SCHEDULER_API_ENABLED = True
 
 
 @app.route('/add_note')
@@ -35,5 +50,8 @@ def add_task():
         return 'Failed in adding task', 500
 
 
-if __name__ == '__main__':
-    app.run()
+app.config.from_object(Config())
+
+scheduler = APScheduler()
+scheduler.init_app(app)
+scheduler.start()
