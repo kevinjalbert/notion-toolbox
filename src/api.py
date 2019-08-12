@@ -16,6 +16,13 @@ class Config(object):
             'args': (),
             'trigger': 'interval',
             'seconds': 60
+        },
+        {
+            'id': 'ping',
+            'func': 'keep_awake:ping',
+            'args': (),
+            'trigger': 'interval',
+            'seconds': 600
         }
     ]
 
