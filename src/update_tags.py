@@ -3,11 +3,12 @@
 import sys
 import json
 
-from notion_api import tagsDatabase
-from config import tagsFilePath
+from notion_api import notion_api
+from notion_api import config
+
 
 try:
-    database = tagsDatabase()
+    database = notion_api.tags_database()
     results = database.default_query().execute()
 
     tags = [{
@@ -30,7 +31,7 @@ try:
         "largetype": "Done"
     }]
 
-    with open(tagsFilePath(), "w") as outfile:
+    with open(config.tags_file_path(), "w") as outfile:
         json.dump({"items": doneTag + tags}, outfile)
     print(str(len(tags)) + " tags")
 except Exception as e:

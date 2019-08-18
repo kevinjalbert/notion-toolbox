@@ -3,7 +3,8 @@
 import sys
 import argparse
 
-from notion_api import appendToCurrentDayNotes
+from notion_api import notion_api
+
 
 try:
     parser = argparse.ArgumentParser(description='Add note')
@@ -12,7 +13,7 @@ try:
 
     query = ' '.join(args.query)
 
-    print(appendToCurrentDayNotes(query).title)
+    print(notion_api.append_to_current_day_notes(query).title)
 except Exception as e:
     # Print out nothing on STDOUT (missing value means means operation was unsuccessful)
     sys.stderr.write(e)

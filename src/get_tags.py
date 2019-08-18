@@ -4,17 +4,19 @@ import sys
 import os
 import json
 
-from notion_api import tagsDatabase
-from config import tagsFilePath
+from notion_api import notion_api
+from notion_api import config
+
 
 try:
     output = None
-    if os.path.isfile(tagsFilePath()):
-        with open(tagsFilePath()) as jsonFile:
-            output = json.load(jsonFile)
+    tag_file_path = config.tags_file_path()
+    if os.path.isfile(tag_file_path):
+        with open(tag_file_path) as json_file:
+            output = json.load(json_file)
 
     if output is None:
-        database = tagsDatabase()
+        database = notion_api.tags_database()
         results = database.default_query().execute()
 
         tags = [{
@@ -27,7 +29,7 @@ try:
             "largetype": row.title
         } for row in results]
 
-        doneTag = [{
+        done_tag = [{
             "uid": "done",
             "title": "Done",
             "variables": {"tagName": "Done"},
@@ -37,9 +39,9 @@ try:
             "largetype": "Done"
         }]
 
-        with open(tagsFilePath(), "w") as outfile:
-            json.dump({"items": tags + doneTag}, outfile)
-        print(json.dumps({"items": tags + doneTag}))
+        with open(tag_file_path, "w") as outfile:
+            json.dump({"items": tags + done_tag}, outfile)
+        print(json.dumps({"items": tags + done_tag}))
     else:
         print(json.dumps(output))
 except Exception as e:

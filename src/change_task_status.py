@@ -4,10 +4,10 @@ import sys
 import argparse
 from datetime import datetime
 
-from notion_api import client
+from notion_api import notion_api
+
 
 try:
-
     parser = argparse.ArgumentParser(
         description='Change status of selected task')
     parser.add_argument('--status', nargs='*', help='status')
@@ -17,7 +17,7 @@ try:
     status = ' '.join(args.status)
     taskId = ' '.join(args.task)
 
-    record = client().get_block(taskId)
+    record = notion_api.client().get_block(taskId)
     record.status = status
 
     if status == "Completed":

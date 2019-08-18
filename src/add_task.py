@@ -4,11 +4,12 @@ import sys
 import json
 import argparse
 
+from notion_api import notion_api
 from utils import app_url
-from notion_api import tasksDatabase
+
 
 try:
-    collection = tasksDatabase().collection
+    collection = notion_api.tasks_database().collection
 
     parser = argparse.ArgumentParser(description='Add task')
     parser.add_argument('--status', nargs='*', help='status')

@@ -3,10 +3,10 @@
 import sys
 import argparse
 
-from notion_api import tagsDatabase
+from notion_api import notion_api
 
 try:
-    collection = tagsDatabase().collection
+    collection = notion_api.tags_database().collection
 
     parser = argparse.ArgumentParser(description='Add tag')
     parser.add_argument('--query', nargs=argparse.REMAINDER, help='query')

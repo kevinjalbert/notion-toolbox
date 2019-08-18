@@ -4,11 +4,12 @@ import sys
 import json
 import argparse
 
+from notion_api import notion_api
 from utils import app_url
-from notion_api import winsDatabase
+
 
 try:
-    collection = winsDatabase().collection
+    collection = notion_api.wins_database().collection
 
     parser = argparse.ArgumentParser(description='Add win')
     parser.add_argument('--tags', nargs='*', help='tags (CSV-style)')

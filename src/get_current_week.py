@@ -2,11 +2,12 @@
 
 import sys
 
+from notion_api import notion_api
 from utils import app_url
-from notion_api import currentWeek
+
 
 try:
-    print(app_url(currentWeek().get_browseable_url()))
+    print(app_url(notion_api.current_week().get_browseable_url()))
 except Exception as e:
     # Print out nothing on STDOUT (missing value means means operation was unsuccessful)
     sys.stderr.write(e)
