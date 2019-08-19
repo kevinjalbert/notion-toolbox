@@ -17,14 +17,9 @@ There is a bit of setup required to make this project work as intended.
 
 ### Get the workflow in Alfred
 
-There are two options:
+Create a _Blank Workflow_ and dump the contents of this repository into it.
 
 ![](./workflow.png)
-
-1. Create a _Blank Workflow_ and dump the contents of this repository into it.
-2. Download the _Exported Workflow_ (from [latest releases](https://github.com/kevinjalbert/alfred-notion/releases)) and import it into Alfred.
-
-In either case, you'll mostly end up with the workflow added to Alfred.
 
 ### Python
 
@@ -64,6 +59,8 @@ Given the information we've taken note of in the last 2 sections, we can now con
     "YEAR_PAGE_URL": "your-notion-year-page-url"
   }
 ```
+
+_Note:_ I know that this is a rather unconventional approach for configurations with an Alfred workflow, but it is what worked best for me. Later on, I might switch it up to something more conventional.
 
 # Features
 
