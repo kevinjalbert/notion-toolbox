@@ -31,6 +31,9 @@ class NotionApi():
     def wins_database(self):
         return self.client().get_collection_view(self.config.wins_database_url())
 
+    def get_block(self, id):
+        return self.client().get_block(id)
+
     @cached(cache={})
     def current_year(self):
         return self.client().get_block(self.config.year_page_url())
