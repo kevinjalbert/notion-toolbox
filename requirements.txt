@@ -1,4 +1,4 @@
 cachetools==3.1.0
 notion==0.0.21
 flake8==3.7.7
-git+git://github.com/kevinjalbert/notion-scripts@v0.1.0#egg=notion-scripts
+git+git://github.com/kevinjalbert/notion-scripts@v0.2.0#egg=notion-scripts
