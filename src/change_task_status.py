@@ -17,7 +17,7 @@ try:
     status = ' '.join(args.status)
     taskId = ' '.join(args.task)
 
-    record = notion_api.client().get_block(taskId)
+    record = notion_api.get_block(taskId)
     record.status = status
 
     if status == "Completed":
