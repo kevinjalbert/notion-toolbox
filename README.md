@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to notion_scripts 👋</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-v0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-v0.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/kevinjalbert/notion-scripts/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
   </a>
