@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>04C530BA-ED0E-42B8-A360-7BCA6B45291F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BE2D494D-0141-4985-A0BB-F3F5EAC89296</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>07009BD5-2488-4FAB-B290-E6B9B2FC0875</key>
 		<array>
 			<dict>
@@ -72,6 +85,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>CC6B0096-7941-4724-82FD-75F2EFF3E552</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>1330CEA4-138B-4018-BCFE-AAD0044AE9D8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3400EB3D-4A94-44BF-BA16-E9072E96AB09</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -232,6 +258,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>93CDC63F-21FC-41CE-B653-45FF4C58ED76</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>3400EB3D-4A94-44BF-BA16-E9072E96AB09</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5F62596D-0A0F-49F7-A5EF-CEE04A52D284</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -611,6 +650,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>A79B1C3B-018C-49C0-9050-0B9CE08E9C19</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1330CEA4-138B-4018-BCFE-AAD0044AE9D8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>AD8CDD94-60A6-483C-9EC9-5A8BEE5A54C4</key>
 		<array>
 			<dict>
@@ -711,6 +763,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>73F06D84-26FA-4E5D-8A8D-F016B37C0EF7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>BE2D494D-0141-4985-A0BB-F3F5EAC89296</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ED263E3D-0970-4A5F-BAA5-B8A8B62A837C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -897,6 +962,45 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>93CDC63F-21FC-41CE-B653-45FF4C58ED76</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EC0F61A7-0123-4936-A832-124FB7237502</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>04C530BA-ED0E-42B8-A360-7BCA6B45291F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>ECCF1C45-DAB6-45AD-9CCB-10C73713E2F6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EC0F61A7-0123-4936-A832-124FB7237502</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>ED263E3D-0970-4A5F-BAA5-B8A8B62A837C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A79B1C3B-018C-49C0-9050-0B9CE08E9C19</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -2493,11 +2597,221 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>curl -X POST -H "Content-Type: application/json" -d "{\"value1\":\"$startTime\",\"value2\":\"$endTime\",\"value3\":\"$taskName\"}" $(cat ./data/config.json | /usr/local/bin/jq -r .IFTTT_TIMEBLOCKING_APPLET_URL)</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>3400EB3D-4A94-44BF-BA16-E9072E96AB09</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetch Tasks (approximately 5 seconds) ...</string>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>./src/get_tasks.py</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Search for a task (title + tags)</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>EC0F61A7-0123-4936-A832-124FB7237502</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>:timeblock</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Time Blocking Tasks in Calendar</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>ECCF1C45-DAB6-45AD-9CCB-10C73713E2F6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string>Can use Natural Language</string>
+				<key>text</key>
+				<string>End Datetime</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A79B1C3B-018C-49C0-9050-0B9CE08E9C19</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>From {var:startTime} to {var:endTime}</string>
+				<key>title</key>
+				<string>Timeblocking '{var:taskName}'</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>5F62596D-0A0F-49F7-A5EF-CEE04A52D284</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string>Can use Natural Language</string>
+				<key>text</key>
+				<string>Start Datetime</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>BE2D494D-0141-4985-A0BB-F3F5EAC89296</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>endTime</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>1330CEA4-138B-4018-BCFE-AAD0044AE9D8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>startTime</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>ED263E3D-0970-4A5F-BAA5-B8A8B62A837C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>04C530BA-ED0E-42B8-A360-7BCA6B45291F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>A tailored Alfred Workflow that performs tasks using notion-py (https://github.com/jamalex/notion-py) within the context of a specific Notion Template (https://www.notion.so/Week-Template-0a7ac4d03082417c929176b5ea1df07e) as described in https://kevinjalbert.com/my-weekly-notion-setup/.</string>
 	<key>uidata</key>
 	<dict>
+		<key>04C530BA-ED0E-42B8-A360-7BCA6B45291F</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>335</integer>
+			<key>ypos</key>
+			<integer>1380</integer>
+		</dict>
 		<key>07009BD5-2488-4FAB-B290-E6B9B2FC0875</key>
 		<dict>
 			<key>colorindex</key>
@@ -2542,6 +2856,15 @@
 			<integer>700</integer>
 			<key>ypos</key>
 			<integer>1000</integer>
+		</dict>
+		<key>1330CEA4-138B-4018-BCFE-AAD0044AE9D8</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>745</integer>
+			<key>ypos</key>
+			<integer>1380</integer>
 		</dict>
 		<key>155BA7B7-2ADB-4F9C-A927-F618EFD1038E</key>
 		<dict>
@@ -2632,6 +2955,15 @@
 			<integer>1460</integer>
 			<key>ypos</key>
 			<integer>750</integer>
+		</dict>
+		<key>3400EB3D-4A94-44BF-BA16-E9072E96AB09</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>800</integer>
+			<key>ypos</key>
+			<integer>1350</integer>
 		</dict>
 		<key>38B3E07E-5EED-48EE-9D74-867514DCB608</key>
 		<dict>
@@ -2740,6 +3072,15 @@
 			<integer>240</integer>
 			<key>ypos</key>
 			<integer>1000</integer>
+		</dict>
+		<key>5F62596D-0A0F-49F7-A5EF-CEE04A52D284</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>945</integer>
+			<key>ypos</key>
+			<integer>1350</integer>
 		</dict>
 		<key>604DF77C-8138-4D35-B97A-A955CB3C942D</key>
 		<dict>
@@ -2930,6 +3271,15 @@
 			<key>ypos</key>
 			<integer>260</integer>
 		</dict>
+		<key>A79B1C3B-018C-49C0-9050-0B9CE08E9C19</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>600</integer>
+			<key>ypos</key>
+			<integer>1350</integer>
+		</dict>
 		<key>AD8CDD94-60A6-483C-9EC9-5A8BEE5A54C4</key>
 		<dict>
 			<key>colorindex</key>
@@ -2983,6 +3333,15 @@
 			<integer>1480</integer>
 			<key>ypos</key>
 			<integer>550</integer>
+		</dict>
+		<key>BE2D494D-0141-4985-A0BB-F3F5EAC89296</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>395</integer>
+			<key>ypos</key>
+			<integer>1350</integer>
 		</dict>
 		<key>C090B29F-C76E-4EB3-BD3F-8FB2ADC10118</key>
 		<dict>
@@ -3136,6 +3495,33 @@
 			<integer>850</integer>
 			<key>ypos</key>
 			<integer>260</integer>
+		</dict>
+		<key>EC0F61A7-0123-4936-A832-124FB7237502</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>185</integer>
+			<key>ypos</key>
+			<integer>1350</integer>
+		</dict>
+		<key>ECCF1C45-DAB6-45AD-9CCB-10C73713E2F6</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>1350</integer>
+		</dict>
+		<key>ED263E3D-0970-4A5F-BAA5-B8A8B62A837C</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>540</integer>
+			<key>ypos</key>
+			<integer>1380</integer>
 		</dict>
 		<key>F50C6E50-6629-4FE2-8F56-8D3107B88780</key>
 		<dict>
