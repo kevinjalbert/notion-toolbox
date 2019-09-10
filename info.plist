@@ -263,6 +263,29 @@
 				<false/>
 			</dict>
 		</array>
+		<key>4464858F-D7A5-4184-8D75-274AE95FB1B7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3A55556D-EC87-4394-BBC5-ED3D51E03E0A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>5B650B1F-84EB-4963-BE43-38AF1580B41C</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Change status</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4F781B45-8D5F-48BE-B7A6-A2232B465FDE</key>
 		<array>
 			<dict>
@@ -2248,6 +2271,55 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>:current</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetch Tasks (approximately 5 seconds) ...</string>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>./src/get_current_tasks.py</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>See the current tasks</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4464858F-D7A5-4184-8D75-274AE95FB1B7</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>--task {var:taskId} --status {query}</string>
 				<key>variables</key>
@@ -2469,7 +2541,7 @@
 			<key>xpos</key>
 			<integer>700</integer>
 			<key>ypos</key>
-			<integer>990</integer>
+			<integer>1000</integer>
 		</dict>
 		<key>155BA7B7-2ADB-4F9C-A927-F618EFD1038E</key>
 		<dict>
@@ -2541,7 +2613,7 @@
 			<key>xpos</key>
 			<integer>40</integer>
 			<key>ypos</key>
-			<integer>860</integer>
+			<integer>850</integer>
 		</dict>
 		<key>31CD395D-3C3C-47C0-8DC0-DB4A49031305</key>
 		<dict>
@@ -2568,16 +2640,16 @@
 			<key>xpos</key>
 			<integer>520</integer>
 			<key>ypos</key>
-			<integer>960</integer>
+			<integer>970</integer>
 		</dict>
 		<key>3A55556D-EC87-4394-BBC5-ED3D51E03E0A</key>
 		<dict>
 			<key>colorindex</key>
 			<integer>11</integer>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>315</integer>
 			<key>ypos</key>
-			<integer>820</integer>
+			<integer>850</integer>
 		</dict>
 		<key>3BA4815D-7B6D-41D7-9585-D599C403C67E</key>
 		<dict>
@@ -2605,6 +2677,15 @@
 			<integer>850</integer>
 			<key>ypos</key>
 			<integer>500</integer>
+		</dict>
+		<key>4464858F-D7A5-4184-8D75-274AE95FB1B7</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>11</integer>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>970</integer>
 		</dict>
 		<key>4F781B45-8D5F-48BE-B7A6-A2232B465FDE</key>
 		<dict>
@@ -2658,7 +2739,7 @@
 			<key>xpos</key>
 			<integer>240</integer>
 			<key>ypos</key>
-			<integer>990</integer>
+			<integer>1000</integer>
 		</dict>
 		<key>604DF77C-8138-4D35-B97A-A955CB3C942D</key>
 		<dict>
@@ -2748,7 +2829,7 @@
 			<key>xpos</key>
 			<integer>460</integer>
 			<key>ypos</key>
-			<integer>990</integer>
+			<integer>1000</integer>
 		</dict>
 		<key>86F6AE0F-38C1-4400-8BE7-0AA4C52FF7BE</key>
 		<dict>
@@ -2820,7 +2901,7 @@
 			<key>xpos</key>
 			<integer>310</integer>
 			<key>ypos</key>
-			<integer>960</integer>
+			<integer>970</integer>
 		</dict>
 		<key>A0E12304-BE8E-4D47-977D-2D420F5F1F98</key>
 		<dict>
@@ -2836,9 +2917,9 @@
 			<key>colorindex</key>
 			<integer>1</integer>
 			<key>xpos</key>
-			<integer>690</integer>
+			<integer>675</integer>
 			<key>ypos</key>
-			<integer>820</integer>
+			<integer>850</integer>
 		</dict>
 		<key>A567C2D2-7074-4DF6-A566-A0F2ADE8BE67</key>
 		<dict>
@@ -2982,7 +3063,7 @@
 			<key>xpos</key>
 			<integer>830</integer>
 			<key>ypos</key>
-			<integer>960</integer>
+			<integer>970</integer>
 		</dict>
 		<key>CCA2B101-5058-45BC-9F3F-66E7D3214D02</key>
 		<dict>
