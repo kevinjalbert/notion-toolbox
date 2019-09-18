@@ -2,4 +2,4 @@
 
 
 def app_url(browser_url):
-    return browser_url.replace("https://www.notion.so/", "notion://")
+    return browser_url.replace("https://", "notion://")
