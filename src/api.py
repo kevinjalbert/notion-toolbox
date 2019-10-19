@@ -1,5 +1,7 @@
 #!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
 
+import os
+
 from notionscripts.notion_api import NotionApi
 
 from flask import Flask, request
@@ -32,29 +34,32 @@ def transition_tasks():
     NotionApi().transition_tasks()
 
 
-@app.route('/add_note')
+@app.route('/add_note', methods=['POST'])
 def add_note():
     try:
+        if request.json['token'] != os.getenv('API_TOKEN'):
+            raise Exception('Request token does not match known value')
+
         notion_api = NotionApi()
 
-        note = request.args.get('title')
-
-        notion_api.append_to_current_day_notes(note)
+        notion_api.append_to_current_day_notes(request.json['title'])
 
         return 'Succeceed in adding note', 200
     except Exception:
         return 'Failed in adding note', 500
 
 
-@app.route('/add_task')
+@app.route('/add_task', methods=['POST'])
 def add_task():
     try:
+        if request.json['token'] != os.getenv('API_TOKEN'):
+            raise Exception('Request token does not match known value')
+
         notion_api = NotionApi()
-        task = request.args.get('title')
 
         collection = notion_api.tasks_database().collection
         row = collection.add_row()
-        row.name = task
+        row.name = request.json['title']
         row.status = 'Next Up'
         row.tags = [notion_api.config.imported_tag_url()]
 
