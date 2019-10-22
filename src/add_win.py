@@ -16,12 +16,14 @@ try:
     parser.add_argument('--query', nargs=argparse.REMAINDER, help='query')
     args = parser.parse_args(sys.argv[1].split())
 
-    tags = ' '.join(args.tags).split(',')
     query = ' '.join(args.query)
 
     row = collection.add_row()
     row.name = query
-    row.tags = tags
+
+    if args.tags:
+        tags = ' '.join(args.tags).split(',')
+        row.tags = tags
 
     # Print out alfred-formatted JSON (modifies variables while passing query through)
     output = {
