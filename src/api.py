@@ -3,8 +3,9 @@
 import os
 
 from notionscripts.notion_api import NotionApi
+from utils import app_url
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_apscheduler import APScheduler
 app = Flask(__name__)
 
@@ -66,6 +67,25 @@ def add_task():
         return 'Succeceed in adding task', 200
     except Exception:
         return 'Failed in adding task', 500
+
+
+@app.route('/current_links.json', methods=['GET'])
+def get_links():
+    try:
+        if request.headers['token'] != os.getenv('API_TOKEN'):
+            raise Exception('Request token does not match known value')
+
+        notion_api = NotionApi()
+
+        current_day = notion_api.current_day()
+        current_week = notion_api.current_week()
+
+        return jsonify(
+            current_day=app_url(current_day.get_browseable_url()),
+            current_week=app_url(current_week.get_browseable_url()),
+        )
+    except Exception:
+        return 'Failed fetching current links', 500
 
 
 app.config.from_object(JobConfig())
