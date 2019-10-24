@@ -1,6 +1,7 @@
 #!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
 
 import os
+from functools import wraps
 
 from notionscripts.notion_api import NotionApi
 from utils import app_url
@@ -35,12 +36,24 @@ def transition_tasks():
     NotionApi().transition_tasks()
 
 
+def token_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if request.headers.get('api_token') == os.getenv('API_TOKEN'):
+            return f(*args, **kwargs)
+        elif request.json.get('api_token') == os.getenv('API_TOKEN'):
+            return f(*args, **kwargs)
+        elif request.args.get('api_token') == os.getenv('API_TOKEN'):
+            return f(*args, **kwargs)
+        else:
+            return 'Request api_token does not match known value', 401
+    return decorated_function
+
+
 @app.route('/add_note', methods=['POST'])
+@token_required
 def add_note():
     try:
-        if request.headers['token'] != os.getenv('API_TOKEN'):
-            raise Exception('Request token does not match known value')
-
         notion_api = NotionApi()
 
         notion_api.append_to_current_day_notes(request.json['title'])
@@ -51,11 +64,9 @@ def add_note():
 
 
 @app.route('/add_task', methods=['POST'])
+@token_required
 def add_task():
     try:
-        if request.headers['token'] != os.getenv('API_TOKEN'):
-            raise Exception('Request token does not match known value')
-
         notion_api = NotionApi()
 
         collection = notion_api.tasks_database().collection
@@ -70,11 +81,9 @@ def add_task():
 
 
 @app.route('/current_links.json', methods=['GET'])
+@token_required
 def get_links():
     try:
-        if request.headers['token'] != os.getenv('API_TOKEN'):
-            raise Exception('Request token does not match known value')
-
         notion_api = NotionApi()
 
         current_day = notion_api.current_day()
