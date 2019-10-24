@@ -37,7 +37,7 @@ def transition_tasks():
 @app.route('/add_note', methods=['POST'])
 def add_note():
     try:
-        if request.json['token'] != os.getenv('API_TOKEN'):
+        if request.headers['token'] != os.getenv('API_TOKEN'):
             raise Exception('Request token does not match known value')
 
         notion_api = NotionApi()
@@ -52,7 +52,7 @@ def add_note():
 @app.route('/add_task', methods=['POST'])
 def add_task():
     try:
-        if request.json['token'] != os.getenv('API_TOKEN'):
+        if request.headers['token'] != os.getenv('API_TOKEN'):
             raise Exception('Request token does not match known value')
 
         notion_api = NotionApi()
