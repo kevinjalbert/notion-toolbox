@@ -1,4 +1,4 @@
-#!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
+#!/usr/local/bin/python3
 
 import sys
 import os
