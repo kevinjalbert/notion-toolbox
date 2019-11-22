@@ -1,19 +1,15 @@
 #!/usr/local/bin/python3
 
 import sys
-import os
 import json
 
 from notion_api import notion_api
 from notion_api import config
+from utils import tags_json
 
 
 try:
-    output = None
-    tag_file_path = config.tags_file_path()
-    if os.path.isfile(tag_file_path):
-        with open(tag_file_path) as json_file:
-            output = json.load(json_file)
+    output = tags_json()
 
     if output is None:
         database = notion_api.tags_database()
@@ -39,7 +35,7 @@ try:
             "largetype": "Done"
         }]
 
-        with open(tag_file_path, "w") as outfile:
+        with open(config.tags_file_path(), "w") as outfile:
             json.dump({"items": tags + done_tag}, outfile)
         print(json.dumps({"items": tags + done_tag}))
     else:
