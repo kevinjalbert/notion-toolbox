@@ -5,4 +5,4 @@ Flask==1.0.3
 gunicorn==19.9.0
 Flask-APScheduler==1.11.0
 requests==2.22.0
-git+git://github.com/kevinjalbert/notion-scripts@v0.1.0#egg=notion-scripts
+git+git://github.com/kevinjalbert/notion-scripts@v0.2.0#egg=notion-scripts
