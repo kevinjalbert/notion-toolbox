@@ -80,6 +80,23 @@ def add_task():
         return 'Failed in adding task', 500
 
 
+@app.route('/current_tasks.json', methods=['GET'])
+@token_required
+def get_current_tasks():
+    try:
+        notion_api = NotionApi()
+
+        current_tasks = []
+        for task in notion_api.get_current_tasks():
+            current_tasks.append({'id': task.id, 'title': task.title})
+
+        return jsonify(
+            tasks=current_tasks
+        )
+    except Exception:
+        return 'Failed fetching current tasks', 500
+
+
 @app.route('/current_links.json', methods=['GET'])
 @token_required
 def get_links():
