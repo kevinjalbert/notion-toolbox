@@ -34,6 +34,9 @@ class NotionApi():
     def get_block(self, id):
         return self.client().get_block(id)
 
+    def append_text_to_block(self, block, text):
+        return block.children.add_new(TextBlock, title=text)
+
     @cached(cache={})
     def current_year(self):
         return self.client().get_block(self.config.year_page_url())
