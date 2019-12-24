@@ -1,0 +1,8 @@
+cachetools==3.1.0
+notion==0.0.21
+flake8==3.7.7
+Flask==1.0.3
+gunicorn==19.9.0
+Flask-APScheduler==1.11.0
+requests==2.22.0
+git+git://github.com/kevinjalbert/notion-scripts@v0.2.1#egg=notion-scripts
