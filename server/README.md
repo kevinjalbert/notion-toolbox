@@ -1,12 +1,4 @@
-<h1 align="center">Welcome to notion-heroku 👋</h1>
-<p align="center">
-  <a href="https://github.com/kevinjalbert/notion-heroku/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
-  </a>
-  <a href="https://twitter.com/kevinjalbert">
-    <img alt="Twitter: kevinjalbert" src="https://img.shields.io/twitter/follow/kevinjalbert.svg?style=social" target="_blank" />
-  </a>
-</p>
+# 🚧 README is out of date (as of December 26, 2019) 🚧
 
 > Heroku hosted application that performs [Notion](https://www.notion.so/) actions (i.e., new task, new note) based on voice requests via [IFTTT Webhooks](https://ifttt.com/maker_webhooks) and [Google Assistant](https://ifttt.com/google_assistant).
 
@@ -73,17 +65,3 @@ The main difference is that the webhook URL is either `/add_note` or `/add_task`
 ![Step 6](./step6.png)
 
 </details>
-
-## Author
-
-👤 **Kevin Jalbert**
-
-* Twitter: [@kevinjalbert](https://twitter.com/kevinjalbert)
-* Github: [@kevinjalbert](https://github.com/kevinjalbert)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

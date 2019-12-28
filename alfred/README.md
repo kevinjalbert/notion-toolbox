@@ -17,9 +17,15 @@ There is a bit of setup required to make this project work as intended.
 
 ### Get the workflow in Alfred
 
-Create a _Blank Workflow_ and dump the contents of this repository into it.
+Create a _Blank Workflow_ and dump the contents of this sub-directory into it.
 
 ![](./workflow.png)
+
+Another option is to symlink the repository's sub-directory into the workflow directory (paths will vary in the example depending on where things are located):
+
+```
+ln -s ~/path/to/notion-tools/alfred ~/path/to/Alfred.alfredpreferences/workflows
+```
 
 ### Python
 
