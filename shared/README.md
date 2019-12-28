@@ -12,6 +12,6 @@ notion_api.current_day()
 notion_api.append_to_current_day_notes("title of a note")
 ```
 
-For more detailed usage I would recommend taking a look at the [alfred](/../alfred/) and [server](/../server/) tools.
+For more detailed usage I would recommend taking a look at the [alfred](../alfred/) and [server](../server/) tools.
 
 A more completed set of features and instructions will be provided soon.
