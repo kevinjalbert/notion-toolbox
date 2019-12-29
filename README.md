@@ -1,6 +1,6 @@
-<h1 align="center">Welcome to notion-tools 👋</h1>
+<h1 align="center">Welcome to notion-toolbox 👋</h1>
 <p align="center">
-  <a href="https://github.com/kevinjalbert/notion-tools/blob/master/LICENSE">
+  <a href="https://github.com/kevinjalbert/notion-toolbox/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
   </a>
   <a href="https://twitter.com/kevinjalbert">
@@ -29,7 +29,7 @@ To simplify my Notion tools I decided to merge them all into one single reposito
 
 ### The Merge
 
-The great merge happened on December 27, 2019. `notion-heroku` and `notion-scripts` were merged into `alfred-notion` (this repository). To better represent the contents of this repository, we now use the name `notion-tools`.
+The great merge happened on December 27, 2019. `notion-heroku` and `notion-scripts` were merged into `alfred-notion` (this repository). To better represent the contents of this repository, we now use the name `notion-toolbox`.
 
 ## Author
 
@@ -40,7 +40,7 @@ The great merge happened on December 27, 2019. `notion-heroku` and `notion-scrip
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/kevinjalbert/notion-tools/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/kevinjalbert/notion-toolbox/issues).
 
 ## Show your support
 
@@ -49,7 +49,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2019 [Kevin Jalbert](https://github.com/kevinjalbert).<br />
-This project is [MIT](https://github.com/kevinjalbert/notion-tools/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/kevinjalbert/notion-toolbox/blob/master/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

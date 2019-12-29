@@ -24,7 +24,7 @@ Create a _Blank Workflow_ and dump the contents of this sub-directory into it.
 Another option is to symlink the repository's sub-directory into the workflow directory (paths will vary in the example depending on where things are located):
 
 ```
-ln -s ~/path/to/notion-tools/alfred ~/path/to/Alfred.alfredpreferences/workflows
+ln -s ~/path/to/notion-toolbox/alfred ~/path/to/Alfred.alfredpreferences/workflows/notion-toolbox-alfred
 ```
 
 ### Python
