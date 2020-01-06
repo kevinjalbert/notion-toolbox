@@ -2,7 +2,6 @@
 
 import sys
 import argparse
-from datetime import datetime
 
 from notion_api import notion_api
 
