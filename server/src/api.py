@@ -5,6 +5,7 @@ from functools import wraps
 
 from notionscripts.notion_api import NotionApi
 from utils import app_url
+from polling_task_processors import PollingTaskProcessors
 
 from flask import Flask, request, jsonify
 from flask_apscheduler import APScheduler
@@ -14,8 +15,8 @@ app = Flask(__name__)
 class JobConfig(object):
     JOBS = [
         {
-            'id': 'add_task_transitions',
-            'func': 'api:transition_tasks',
+            'id': 'polling_task_processors',
+            'func': 'api:polling_task_processors',
             'args': (),
             'trigger': 'interval',
             'seconds': 60
@@ -32,8 +33,9 @@ class JobConfig(object):
     SCHEDULER_API_ENABLED = True
 
 
-def transition_tasks():
-    NotionApi().transition_tasks()
+def polling_task_processors():
+    notion_api = NotionApi()
+    PollingTaskProcessors(notion_api).run()
 
 
 def token_required(f):

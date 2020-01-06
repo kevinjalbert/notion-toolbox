@@ -7,7 +7,6 @@ from notion.client import NotionClient
 from notion.block import DividerBlock, TextBlock
 
 from notionscripts.config import Config
-from notionscripts.tasks_transition_updater import TasksTransitionUpdater
 
 
 class NotionApi():
@@ -96,6 +95,3 @@ class NotionApi():
         ]
         current_tasks_query = self.tasks_database().build_query(filter=filter_params)
         return current_tasks_query.execute()
-
-    def transition_tasks(self):
-        TasksTransitionUpdater(self).process()
