@@ -20,9 +20,6 @@ try:
     record = notion_api.get_block(taskId)
     record.status = status
 
-    if status == "Completed":
-        record.completed_on = datetime.now()
-
     print(status)
 except Exception as e:
     # Print out nothing on STDOUT (missing value means means operation was unsuccessful)

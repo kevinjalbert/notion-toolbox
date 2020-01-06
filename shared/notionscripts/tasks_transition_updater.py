@@ -18,6 +18,8 @@ class TasksTransitionUpdater():
 
                 print("Processing '{}'".format(task.title))
 
+                self._handle_recently_completed_task(task)
+
                 # Find toggle block (or create one if it doesn't exist)
                 toggle_block = self._find_toggle_block(task)
 
@@ -71,6 +73,11 @@ class TasksTransitionUpdater():
     def _create_transition(self, toggle_block, task):
         transition_string = "{}, {}".format(task.status, self._format_date_time(datetime.now()))
         toggle_block.children.add_new(TextBlock, title=transition_string)
+
+    def _handle_recently_completed_task(self, task):
+        if task.status == "Completed" and task.completed_on is None:
+            print("-> Updating Task's 'Completed On'")
+            task.completed_on = datetime.now()
 
     def _format_date_time(self, datetime):
         return datetime.strftime("%Y-%m-%d %H:%M:%S")
