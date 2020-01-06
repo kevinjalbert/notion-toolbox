@@ -8,7 +8,6 @@ from notion.block import DividerBlock, TextBlock
 
 from notionscripts.config import Config
 from notionscripts.tasks_transition_updater import TasksTransitionUpdater
-import notionscripts.disable_cache  # noqa: F401
 
 
 class NotionApi():
