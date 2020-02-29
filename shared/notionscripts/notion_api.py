@@ -86,12 +86,19 @@ class NotionApi():
         return note_block
 
     def get_current_tasks(self):
-        filter_params = [
-          {
-            "property": "status",
-            "comparator": "enum_is",
-            "value": "Current"
-          }
-        ]
+        filter_params = {
+            "filters": [
+                {
+                    "filter":{
+                        "value": {
+                            "type": "exact",
+                            "value": "Current"
+                        },
+                        "operator":"enum_is"
+                    },
+                    "property":"status"
+                },
+            ]
+        }
         current_tasks_query = self.tasks_database().build_query(filter=filter_params)
         return current_tasks_query.execute()
