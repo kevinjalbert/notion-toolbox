@@ -5,4 +5,4 @@ Flask==1.0.3
 gunicorn==19.9.0
 Flask-APScheduler==1.11.0
 requests==2.22.0
--e ./shared
+-e ./shared # When this file is pip installed, the current working directory is the root of the project

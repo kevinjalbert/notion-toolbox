@@ -1,1 +1,3 @@
+# Due to how Heroku applications are deployed, we need to be able to install the `server`
+# dependencies from the root directory. There also needs to be a `Procfile` to start things up
 -r ./server/requirements.txt
