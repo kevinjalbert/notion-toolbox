@@ -53,7 +53,7 @@ class NotionApi():
                 found_week = week_page
                 break
             else:
-                next
+                continue
 
         return found_week
 
@@ -71,7 +71,7 @@ class NotionApi():
                 found_day = day_page
                 break
             else:
-                next
+                continue
 
         return found_day
 
