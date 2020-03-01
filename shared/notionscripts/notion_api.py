@@ -4,7 +4,7 @@ from cachetools import cached
 from datetime import datetime
 
 from notion.client import NotionClient
-from notion.block import DividerBlock, TextBlock
+from notion.block import DividerBlock, TextBlock, CollectionViewBlock
 
 from notionscripts.config import Config
 
@@ -74,6 +74,39 @@ class NotionApi():
                 continue
 
         return found_day
+
+    def current_week_lights(self):
+        found_lights = None
+
+        for block in self.current_week().children:
+            if type(block) == CollectionViewBlock and block.title.endswith("Lights"):
+                found_lights = block
+                break
+            else:
+                continue
+
+        return found_lights
+
+    def current_day_lights(self):
+        view = self.current_week_lights()
+
+        if view is None:
+            return
+
+        current_day = datetime.now().strftime("%A")
+
+        lights = []
+        for row in view.collection.get_rows():
+            if not row.objective or row.objective.startswith("["):
+                continue
+
+            lights.append({
+                "id": row.id,
+                "title": "{} ({})".format(row.objective, getattr(row, current_day) or " "),
+                "url": row.get_browseable_url()
+            })
+
+        return lights
 
     def append_to_current_day_notes(self, content):
         # Get the divider block that signifies the end of the notes for the current day

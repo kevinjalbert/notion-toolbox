@@ -2,6 +2,7 @@
 
 import os
 from functools import wraps
+from datetime import datetime
 
 from notionscripts.notion_api import NotionApi
 from utils import app_url
@@ -115,6 +116,40 @@ def get_links():
         )
     except Exception:
         return 'Failed fetching current links', 500
+
+
+@app.route('/current_lights.json', methods=['GET'])
+@token_required
+def get_current_lights():
+    try:
+        notion_api = NotionApi()
+
+        current_lights = []
+        for light in notion_api.current_day_lights():
+            current_lights.append({'id': light["url"], 'title': light["title"]})
+
+        print(current_lights)
+        return jsonify(
+            lights=current_lights
+        )
+    except Exception:
+        return 'Failed fetching current lights', 500
+
+
+@app.route('/update_light.json', methods=['POST'])
+@token_required
+def update_light():
+    try:
+        notion_api = NotionApi()
+
+        current_day = datetime.now().strftime("%A")
+
+        block = notion_api.get_block(request.json['lightId'])
+        setattr(block, current_day, request.json['value'])
+
+        return 'Succeceed in updating light', 200
+    except Exception:
+        return 'Failed updating light', 500
 
 
 app.config.from_object(JobConfig())
