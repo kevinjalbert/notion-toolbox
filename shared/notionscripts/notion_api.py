@@ -89,14 +89,14 @@ class NotionApi():
         filter_params = {
             "filters": [
                 {
-                    "filter":{
+                    "filter": {
                         "value": {
                             "type": "exact",
                             "value": "Current"
                         },
-                        "operator":"enum_is"
+                        "operator": "enum_is"
                     },
-                    "property":"status"
+                    "property": "status"
                 },
             ]
         }
