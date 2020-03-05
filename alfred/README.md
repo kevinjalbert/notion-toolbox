@@ -7,7 +7,7 @@ A tailored Alfred Workflow that performs tasks using [`notion-py`](https://githu
 There is a bit of setup required to make this project work as intended.
 
 1. Have a [Notion](https://www.notion.so/) account
-2. Have [Alfred 3+](https://www.alfredapp.com/) with access to workflows (i.e., powerpack)
+2. Have [Alfred 4+](https://www.alfredapp.com/) with access to workflows (i.e., powerpack)
 3. Have Python 3 installed on the system
 4. Have [Specific Notion Template](https://www.notion.so/Week-Template-0a7ac4d03082417c929176b5ea1df07e) as described in [this blog post](https://kevinjalbert.com/my-weekly-notion-setup/)
 5. Your Notion Token
