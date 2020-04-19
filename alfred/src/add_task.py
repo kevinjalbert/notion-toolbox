@@ -21,7 +21,7 @@ try:
     status = ' '.join(args.status)
 
     row = collection.add_row()
-    row.name = query
+    row.title = query
     row.status = status
 
     if args.tags:
