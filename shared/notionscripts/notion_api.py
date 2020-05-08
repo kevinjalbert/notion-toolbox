@@ -45,7 +45,7 @@ class NotionApi():
         current_date = datetime.now()
 
         week_number = current_date.isocalendar()[1]
-        if self.config.week_starts_on_sunday:
+        if self.config.week_starts_on_sunday():
             week_number = str(week_number + (current_date.isoweekday() == 7))
 
         for week_page in self.current_year().children:
@@ -64,7 +64,7 @@ class NotionApi():
 
         # example: Sunday 6
         day_name = current_date.strftime("%B %-d")
-        if self.config.custom_day_format:
+        if self.config.custom_day_format():
             day_name = current_date.strftime(self.config.custom_day_format())
 
         days_page = self.current_week().children[1].children[1]
