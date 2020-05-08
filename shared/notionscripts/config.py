@@ -28,3 +28,7 @@ class Config():
     @cached(cache={})
     def imported_tag_url(self):
         return os.environ.get('IMPORTED_TAG_URL')
+
+    @cached(cache={})
+    def week_starts_on_sunday(self):
+        return os.environ.get('WEEK_STARTS_ON_SUNDAY')
