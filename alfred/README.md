@@ -62,7 +62,9 @@ Given the information we've taken note of in the last 2 sections, we can now con
     "TAGS_DATABASE_URL": "your-notion-tags-database-url",
     "TASKS_DATABASE_URL": "your-notion-tasks-database-url",
     "WINS_DATABASE_URL": "your-notion-wins-database-url",
-    "YEAR_PAGE_URL": "your-notion-year-page-url"
+    "YEAR_PAGE_URL": "your-notion-year-page-url",
+    "WEEK_STARTS_ON_SUNDAY": true,
+    "CUSTOM_DAY_FORMAT": "strftime-day-format-inside-days-column"
   }
 ```
 
