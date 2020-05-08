@@ -32,3 +32,7 @@ class Config():
     @cached(cache={})
     def week_starts_on_sunday(self):
         return os.environ.get('WEEK_STARTS_ON_SUNDAY')
+
+    @cached(cache={})
+    def custom_day_format(self):
+        return os.environ.get('CUSTOM_DAY_FORMAT')

@@ -47,3 +47,7 @@ class Config():
     @cached(cache={})
     def week_starts_on_sunday(self):
         return self.config_json()['WEEK_STARTS_ON_SUNDAY']
+
+    @cached(cache={})
+    def custom_day_format(self):
+        return self.config_json()['CUSTOM_DAY_FORMAT']

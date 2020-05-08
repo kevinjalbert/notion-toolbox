@@ -62,12 +62,15 @@ class NotionApi():
         found_day = None
         current_date = datetime.now()
 
-        day_number = str(current_date.day)
-        month_name = current_date.strftime("%B")
+        # example: Sunday 6
+        day_name = current_date.strftime("%B %-d")
+        if self.config.custom_day_format:
+            day_name = current_date.strftime(self.config.custom_day_format())
+
         days_page = self.current_week().children[1].children[1]
 
         for day_page in days_page.children:
-            if day_page.title.startswith(month_name + " " + day_number):
+            if day_page.title.startswith(day_name):
                 found_day = day_page
                 break
             else:
