@@ -66,6 +66,13 @@ Given the information we've taken note of in the last 2 sections, we can now con
   }
 ```
 
+_Note:_ these are optional configs for additional customization:
+
+```
+    "WEEK_STARTS_ON_SUNDAY": true,
+    "CUSTOM_DAY_FORMAT": "strftime-day-format-inside-days-column"
+```
+
 _Note:_ I know that this is a rather unconventional approach for configurations with an Alfred workflow, but it is what worked best for me. Later on, I might switch it up to something more conventional.
 
 # Features

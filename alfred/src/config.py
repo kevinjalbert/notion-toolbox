@@ -43,3 +43,11 @@ class Config():
     @cached(cache={})
     def year_page_url(self):
         return self.config_json()['YEAR_PAGE_URL']
+
+    @cached(cache={})
+    def week_starts_on_sunday(self):
+        return self.config_json().get('WEEK_STARTS_ON_SUNDAY', True)
+
+    @cached(cache={})
+    def custom_day_format(self):
+        return self.config_json().get('CUSTOM_DAY_FORMAT', "%B %-d")

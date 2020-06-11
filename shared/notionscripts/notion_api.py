@@ -44,12 +44,12 @@ class NotionApi():
         found_week = None
         current_date = datetime.now()
 
-        # Sunday Starts the week
-        week_number = str(current_date.isocalendar()[
-                         1] + (current_date.isoweekday() == 7))
+        week_number = current_date.isocalendar()[1]
+        if self.config.week_starts_on_sunday():
+            week_number = str(week_number + (current_date.isoweekday() == 7))
 
         for week_page in self.current_year().children:
-            if week_page.title.startswith("Week " + week_number):
+            if week_page.title.startswith("Week {}".format(week_number)):
                 found_week = week_page
                 break
             else:
@@ -62,12 +62,11 @@ class NotionApi():
         found_day = None
         current_date = datetime.now()
 
-        day_number = str(current_date.day)
-        month_name = current_date.strftime("%B")
+        day_name = current_date.strftime(self.config.custom_day_format())
         days_page = self.current_week().children[1].children[1]
 
         for day_page in days_page.children:
-            if day_page.title.startswith(month_name + " " + day_number):
+            if day_page.title.startswith(day_name):
                 found_day = day_page
                 break
             else:
