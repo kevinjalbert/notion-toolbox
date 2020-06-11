@@ -9,7 +9,7 @@ from notion_api import config
 
 try:
     database = notion_api.tags_database()
-    results = database.default_query().execute()
+    results = database.build_query().execute()
 
     tags = [{
         "uid": row.id,
