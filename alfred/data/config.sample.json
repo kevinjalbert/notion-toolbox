@@ -4,7 +4,5 @@
   "TASKS_DATABASE_URL": "your-notion-tasks-database-url",
   "WINS_DATABASE_URL": "your-notion-wins-database-url",
   "YEAR_PAGE_URL": "your-notion-year-page-url",
-  "IFTTT_TIMEBLOCKING_APPLET_URL": "https://maker.ifttt.com/trigger/your-event/with/key/your-key",
-  "WEEK_STARTS_ON_SUNDAY": true,
-  "CUSTOM_DAY_FORMAT": null
+  "IFTTT_TIMEBLOCKING_APPLET_URL": "https://maker.ifttt.com/trigger/your-event/with/key/your-key"
 }

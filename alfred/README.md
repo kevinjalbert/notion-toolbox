@@ -62,10 +62,15 @@ Given the information we've taken note of in the last 2 sections, we can now con
     "TAGS_DATABASE_URL": "your-notion-tags-database-url",
     "TASKS_DATABASE_URL": "your-notion-tasks-database-url",
     "WINS_DATABASE_URL": "your-notion-wins-database-url",
-    "YEAR_PAGE_URL": "your-notion-year-page-url",
+    "YEAR_PAGE_URL": "your-notion-year-page-url"
+  }
+```
+
+_Note:_ these are optional configs for additional customization:
+
+```
     "WEEK_STARTS_ON_SUNDAY": true,
     "CUSTOM_DAY_FORMAT": "strftime-day-format-inside-days-column"
-  }
 ```
 
 _Note:_ I know that this is a rather unconventional approach for configurations with an Alfred workflow, but it is what worked best for me. Later on, I might switch it up to something more conventional.
