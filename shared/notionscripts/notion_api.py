@@ -62,11 +62,7 @@ class NotionApi():
         found_day = None
         current_date = datetime.now()
 
-        # example: Sunday 6
-        day_name = current_date.strftime("%B %-d")
-        if self.config.custom_day_format():
-            day_name = current_date.strftime(self.config.custom_day_format())
-
+        day_name = current_date.strftime(self.config.custom_day_format())
         days_page = self.current_week().children[1].children[1]
 
         for day_page in days_page.children:
