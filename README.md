@@ -16,6 +16,8 @@ The following tools are available. Each tool has a README file present in its co
 
 - [Alfred](alfred/) workflow
   - Enables a handful of ways to interact with the template using shortcuts
+- [BitBar](bitbar/) plugin
+  - Displays the current task in your menubar (with quick access to the Notion page)
 - [Server](server/) application
   - Enables an online (and backgrounded) interface to interact with the template
   - Useful to connect with webhooks (e.g., IFTTT)
