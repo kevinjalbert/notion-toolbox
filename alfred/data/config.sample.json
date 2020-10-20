@@ -1,8 +1,0 @@
-{
-  "NOTION_TOKEN": "your-notion-token",
-  "TAGS_DATABASE_URL": "your-notion-tags-database-url",
-  "TASKS_DATABASE_URL": "your-notion-tasks-database-url",
-  "WINS_DATABASE_URL": "your-notion-wins-database-url",
-  "YEAR_PAGE_URL": "your-notion-year-page-url",
-  "IFTTT_TIMEBLOCKING_APPLET_URL": "https://maker.ifttt.com/trigger/your-event/with/key/your-key"
-}

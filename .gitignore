@@ -1,7 +1,3 @@
-##### CUSTOM #####
-alfred/data/config.json
-alfred/data/tags.json
-
 ##### PYTHON #####
 # Byte-compiled / optimized / DLL files
 __pycache__/
