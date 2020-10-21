@@ -14,7 +14,10 @@ class NotionApi():
     def client(self):
         return NotionClient(token_v2=self.token, monitor=False)
 
-    def get_block_content(self, block_id):
+    def __collection_view(self, collection_id, view_id):
+        return self.client().get_collection_view(f"https://www.notion.so/{collection_id}?v={view_id}")
+
+    def block_content(self, block_id):
         block = self.client().get_block(block_id)
 
         content = [block.title]
@@ -24,16 +27,13 @@ class NotionApi():
 
         return "\n".join(content)
 
-    def get_collection_view(self, collection_id, view_id):
-        return self.client().get_collection_view(f"https://www.notion.so/{collection_id}?v={view_id}")
-
     def block_append(self, block_id, text):
         block = self.client().get_block(block_id)
 
         return block.children.add_new(TextBlock, title=text)
 
-    def collection_view(self, collection_id, view_id):
-        collection_view = self.get_collection_view(collection_id, view_id)
+    def collection_view_content(self, collection_id, view_id):
+        collection_view = self.__collection_view(collection_id, view_id)
         results = collection_view.default_query().execute()
 
         content = []
@@ -43,7 +43,7 @@ class NotionApi():
         return content
 
     def collection_append(self, collection_id, view_id, data):
-        collection_view = self.get_collection_view(collection_id, view_id)
+        collection_view = self.__collection_view(collection_id, view_id)
 
         row = collection_view.collection.add_row(**data)
 
