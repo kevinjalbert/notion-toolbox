@@ -52,7 +52,7 @@ def block_view(notion_token, block_id):
     try:
         notion_api = NotionApi(notion_token)
 
-        content = notion_api.get_block_content(block_id)
+        content = notion_api.block_content(block_id)
 
         return jsonify(content=content), 200
     except Exception as error:

@@ -28,4 +28,4 @@ jobs:
         flake8 . --count --exit-zero --statistics
     - name: Test with pytest
       run: |
-        pytest shared/notionscripts/tests/ --notion_token ${{ secrets.NOTION_TOKEN }}
+        pytest shared/notionscripts/tests/ --notion_token ${{ secrets.NOTION_TOKEN }} --notion_test_parent_page_id ${{ secrets.NOTION_TEST_PARENT_PAGE_ID }} --tb=native

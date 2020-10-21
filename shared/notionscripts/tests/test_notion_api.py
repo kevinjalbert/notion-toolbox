@@ -1,19 +1,57 @@
 from notionscripts.notion_api import NotionApi
 
+from .notion_api_page_helper import get_test_page, create_collection_view
 
-def test_get_block_content(notion_token):
+from notion.block import TextBlock
+
+import pytest
+
+
+def test_block_content(notion_token):
     notion_api = NotionApi(token=notion_token)
-    block_id = "f91655c4122a44f49f19ea20db5dcdf7"
+    test_page = get_test_page()
 
-    content = notion_api.get_block_content(block_id)
+    block = test_page.children.add_new(TextBlock, title="test get block content")
+    content = notion_api.block_content(block.id)
 
-    assert content == "Test block"
+    assert content == "test get block content"
 
 
-def test_get_collection_view(notion_token):
+@pytest.mark.focus
+def test_block_append(notion_token):
     notion_api = NotionApi(token=notion_token)
-    collection_id = "4c2221595f184ccc8b8ffb490b4a4f90"
-    view_id = "0f5afdd5859d45d9a3514c6e5cbe8cc6"
-    collection_view = notion_api.get_collection_view(collection_id, view_id)
+    test_page = get_test_page()
 
-    assert collection_view.id == "0f5afdd5-859d-45d9-a351-4c6e5cbe8cc6"
+    block = test_page.children.add_new(TextBlock, title="test block append")
+    new_block = notion_api.block_append(block.id, "appending text")
+
+    assert new_block.title == "appending text"
+    assert new_block.parent.id == block.id
+
+
+def test_collection_view_content(notion_token):
+    notion_api = NotionApi(token=notion_token)
+
+    collection_view = create_collection_view()
+    collection_id = collection_view.parent.id.replace("-", "")
+    view_id = collection_view.id.replace("-", "")
+
+    collection_view.collection.add_row(name="test row")
+    collection_view_content = notion_api.collection_view_content(collection_id, view_id)
+
+    assert collection_view_content[0]["name"] == "test row"
+
+
+def test_collection_view_append(notion_token):
+    notion_api = NotionApi(token=notion_token)
+
+    collection_view = create_collection_view()
+    collection_id = collection_view.parent.id.replace("-", "")
+    view_id = collection_view.id.replace("-", "")
+
+    notion_api.collection_append(collection_id, view_id, {"enabled": True, "value": 10, "name": "test row"})
+    collection_view_content = notion_api.collection_view_content(collection_id, view_id)
+
+    assert collection_view_content[0]["name"] == "test row"
+    assert collection_view_content[0]["enabled"] is True
+    assert collection_view_content[0]["value"] == 10
