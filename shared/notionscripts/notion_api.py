@@ -32,6 +32,13 @@ class NotionApi():
 
         return block.children.add_new(TextBlock, title=text)
 
+    def block_update(self, block_id, text):
+        block = self.client().get_block(block_id)
+
+        block.title = text
+
+        return block
+
     def collection_view_content(self, collection_id, view_id):
         collection_view = self.__collection_view(collection_id, view_id)
         results = collection_view.default_query().execute()

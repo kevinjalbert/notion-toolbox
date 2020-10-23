@@ -14,6 +14,7 @@ As of right now the following endpoints exist:
 
 ```python
 @app.route('/blocks/<block_id>/append', methods=['POST'])
+@app.route('/blocks/<block_id>/update', methods=['PUT'])
 @app.route('/blocks/<block_id>/view', methods=['GET'])
 @app.route('/collections/<collection_id>/<view_id>/append', methods=['POST'])
 @app.route('/collections/<collection_id>/<view_id>/view', methods=['GET'])
