@@ -4,7 +4,7 @@ from .notion_api_page_helper import get_test_page, create_collection_view
 
 from notion.block import TextBlock
 
-import pytest
+import pytest  # noqa, F401
 
 
 def test_block_content(notion_token):
@@ -17,7 +17,6 @@ def test_block_content(notion_token):
     assert content == "test get block content"
 
 
-@pytest.mark.focus
 def test_block_append(notion_token):
     notion_api = NotionApi(token=notion_token)
     test_page = get_test_page()
@@ -27,6 +26,17 @@ def test_block_append(notion_token):
 
     assert new_block.title == "appending text"
     assert new_block.parent.id == block.id
+
+
+def test_block_update(notion_token):
+    notion_api = NotionApi(token=notion_token)
+    test_page = get_test_page()
+
+    block = test_page.children.add_new(TextBlock, title="test block update")
+    updated_block = notion_api.block_update(block.id, "test block has been updated")
+
+    assert updated_block.title == "test block has been updated"
+    assert updated_block.id == block.id
 
 
 def test_collection_view_content(notion_token):
