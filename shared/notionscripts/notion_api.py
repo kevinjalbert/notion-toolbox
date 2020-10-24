@@ -41,6 +41,13 @@ class NotionApi():
 
         return block
 
+    def block_delete(self, block_id):
+        block = self.client().get_block(block_id)
+
+        block.remove()
+
+        return block
+
     def collection_view_content(self, collection_id, view_id):
         collection_view = self.__collection_view(collection_id, view_id)
         results = collection_view.default_query().execute()

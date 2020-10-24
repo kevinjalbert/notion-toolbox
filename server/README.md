@@ -26,6 +26,10 @@ As of right now the following endpoints exist:
 # all of its children's titles and join them with newlines.
 @app.route('/blocks/<block_id>/view', methods=['GET'])
 
+# Allows you to delete the specified block. This also works for collection rows
+# as they are technically blocks
+@app.route('/blocks/<block_id>/delete', methods=['DELETE'])
+
 # Allows you to append a new row onto the specificed collection view with the
 # values from the JSON body.
 @app.route('/collections/<collection_id>/<view_id>/append', methods=['POST'])
