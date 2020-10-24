@@ -59,6 +59,19 @@ def block_update(notion_token, block_id):
         return jsonify(error=str(error)), 500
 
 
+@app.route('/blocks/<block_id>/delete', methods=['DELETE'])
+@token_required
+def block_delete(notion_token, block_id):
+    try:
+        notion_api = NotionApi(notion_token)
+
+        block = notion_api.block_delete(block_id)
+
+        return jsonify(block_id=block.id), 200
+    except Exception as error:
+        return jsonify(error=str(error)), 500
+
+
 @app.route('/blocks/<block_id>/view', methods=['GET'])
 @token_required
 def block_view(notion_token, block_id):

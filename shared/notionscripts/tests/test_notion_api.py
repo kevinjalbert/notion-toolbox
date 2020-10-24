@@ -52,6 +52,30 @@ def test_block_update_with_collection_block(notion_token):
     assert updated_block.id == block.id
 
 
+def test_block_delete_with_text_block(notion_token):
+    notion_api = NotionApi(token=notion_token)
+    test_page = get_test_page()
+
+    block = test_page.children.add_new(TextBlock, title="test block delete")
+    parent_block = block.parent
+
+    notion_api.block_delete(block.id)
+    parent_block.refresh()
+
+    assert block not in parent_block.children
+
+
+def test_block_delete_with_collection_block(notion_token):
+    notion_api = NotionApi(token=notion_token)
+
+    collection_view = create_collection_view()
+    block = collection_view.collection.add_row(name="test row", value=10, enabled=True)
+
+    notion_api.block_delete(block.id)
+
+    assert block not in collection_view.collection.get_rows()
+
+
 def test_collection_view_content(notion_token):
     notion_api = NotionApi(token=notion_token)
 
