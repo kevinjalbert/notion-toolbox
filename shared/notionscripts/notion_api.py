@@ -27,15 +27,17 @@ class NotionApi():
 
         return "\n".join(content)
 
-    def block_append(self, block_id, text):
+    def block_append(self, block_id, data):
         block = self.client().get_block(block_id)
 
-        return block.children.add_new(TextBlock, title=text)
+        return block.children.add_new(TextBlock, title=data["title"])
 
-    def block_update(self, block_id, text):
+    def block_update(self, block_id, data):
         block = self.client().get_block(block_id)
 
-        block.title = text
+        with self.client().as_atomic_transaction():
+            for key, val in data.items():
+                setattr(block, key, val)
 
         return block
 

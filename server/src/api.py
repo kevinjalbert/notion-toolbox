@@ -39,7 +39,7 @@ def block_append(notion_token, block_id):
     try:
         notion_api = NotionApi(notion_token)
 
-        block = notion_api.block_append(block_id, request.json['text'])
+        block = notion_api.block_append(block_id, request.json)
 
         return jsonify(block_id=block.id), 200
     except Exception as error:
@@ -52,7 +52,7 @@ def block_update(notion_token, block_id):
     try:
         notion_api = NotionApi(notion_token)
 
-        block = notion_api.block_update(block_id, request.json['text'])
+        block = notion_api.block_update(block_id, request.json)
 
         return jsonify(block_id=block.id), 200
     except Exception as error:
@@ -91,7 +91,7 @@ def collection_view(notion_token, collection_id, view_id):
     try:
         notion_api = NotionApi(notion_token)
 
-        content = notion_api.collection_view(collection_id, view_id)
+        content = notion_api.collection_view_content(collection_id, view_id)
 
         return jsonify(rows=content), 200
     except Exception as error:
