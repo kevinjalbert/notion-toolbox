@@ -33,7 +33,7 @@ def token_required(f):
     return decorated_function
 
 
-@app.route('/blocks/<block_id>/append', methods=['POST'])
+@app.route('/blocks/<block_id>', methods=['POST'])
 @token_required
 def block_append(notion_token, block_id):
     try:
@@ -46,7 +46,7 @@ def block_append(notion_token, block_id):
         return jsonify(error=str(error)), 500
 
 
-@app.route('/blocks/<block_id>/update', methods=['PUT'])
+@app.route('/blocks/<block_id>', methods=['PUT'])
 @token_required
 def block_update(notion_token, block_id):
     try:
@@ -59,7 +59,7 @@ def block_update(notion_token, block_id):
         return jsonify(error=str(error)), 500
 
 
-@app.route('/blocks/<block_id>/delete', methods=['DELETE'])
+@app.route('/blocks/<block_id>', methods=['DELETE'])
 @token_required
 def block_delete(notion_token, block_id):
     try:
@@ -72,7 +72,7 @@ def block_delete(notion_token, block_id):
         return jsonify(error=str(error)), 500
 
 
-@app.route('/blocks/<block_id>/view', methods=['GET'])
+@app.route('/blocks/<block_id>', methods=['GET'])
 @token_required
 def block_view(notion_token, block_id):
     try:
@@ -85,7 +85,7 @@ def block_view(notion_token, block_id):
         return jsonify(error=str(error)), 500
 
 
-@app.route('/collections/<collection_id>/<view_id>/append', methods=['POST'])
+@app.route('/collections/<collection_id>/<view_id>', methods=['POST'])
 @token_required
 def collection_append(notion_token, collection_id, view_id):
     try:
@@ -98,7 +98,7 @@ def collection_append(notion_token, collection_id, view_id):
         return jsonify(error=str(error)), 500
 
 
-@app.route('/collections/<collection_id>/<view_id>/view', methods=['GET'])
+@app.route('/collections/<collection_id>/<view_id>', methods=['GET'])
 @token_required
 def collection_view(notion_token, collection_id, view_id):
     try:
