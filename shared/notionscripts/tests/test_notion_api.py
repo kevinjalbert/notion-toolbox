@@ -14,7 +14,21 @@ def test_block_content(notion_token):
     block = test_page.children.add_new(TextBlock, title="test get block content")
     content = notion_api.block_content(block.id)
 
-    assert content == "test get block content"
+    assert content == {"id": block.id, "title": "test get block content"}
+
+
+def test_block_children(notion_token):
+    notion_api = NotionApi(token=notion_token)
+    test_page = get_test_page()
+
+    block = test_page.children.add_new(TextBlock, title="a parent block")
+    child_block_1 = block.children.add_new(TextBlock, title="child block 1")
+    child_block_2 = block.children.add_new(TextBlock, title="child block 2")
+
+    content = notion_api.block_children(block.id)
+
+    assert content[0] == {"id": child_block_1.id, "title": "child block 1"}
+    assert content[1] == {"id": child_block_2.id, "title": "child block 2"}
 
 
 def test_block_append(notion_token):
