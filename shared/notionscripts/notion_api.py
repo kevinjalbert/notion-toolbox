@@ -20,17 +20,23 @@ class NotionApi():
     def block_content(self, block_id):
         block = self.client().get_block(block_id)
 
-        content = [block.title]
-        for child in block.children:
-            if hasattr(child, "title"):
-                content.append(child.title)
+        return {"id": block.id, "title": block.title}
 
-        return "\n".join(content)
+    def block_children(self, block_id):
+        block = self.client().get_block(block_id)
+
+        content = []
+        for child in block.children:
+            content.append({"id": child.id, "title": child.title})
+
+        return content
 
     def block_append(self, block_id, data):
         block = self.client().get_block(block_id)
 
-        return block.children.add_new(TextBlock, title=data["title"])
+        new_block = block.children.add_new(TextBlock, title=data["title"])
+
+        return new_block
 
     def block_update(self, block_id, data):
         block = self.client().get_block(block_id)

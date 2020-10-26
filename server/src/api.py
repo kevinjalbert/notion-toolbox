@@ -41,7 +41,7 @@ def block_append(notion_token, block_id):
 
         block = notion_api.block_append(block_id, request.json)
 
-        return jsonify(block_id=block.id), 200
+        return jsonify(id=block.id), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
@@ -54,7 +54,7 @@ def block_update(notion_token, block_id):
 
         block = notion_api.block_update(block_id, request.json)
 
-        return jsonify(block_id=block.id), 200
+        return jsonify(id=block.id), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
@@ -67,7 +67,7 @@ def block_delete(notion_token, block_id):
 
         block = notion_api.block_delete(block_id)
 
-        return jsonify(block_id=block.id), 200
+        return jsonify(id=block.id), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
@@ -80,7 +80,20 @@ def block_view(notion_token, block_id):
 
         content = notion_api.block_content(block_id)
 
-        return jsonify(content=content), 200
+        return jsonify(content), 200
+    except Exception as error:
+        return jsonify(error=str(error)), 500
+
+
+@app.route('/blocks/<block_id>/children', methods=['GET'])
+@token_required
+def block_children(notion_token, block_id):
+    try:
+        notion_api = NotionApi(notion_token)
+
+        content = notion_api.block_children(block_id)
+
+        return jsonify(content), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
