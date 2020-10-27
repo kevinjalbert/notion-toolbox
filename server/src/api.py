@@ -33,9 +33,9 @@ def token_required(f):
     return decorated_function
 
 
-@app.route('/blocks/<block_id>', methods=['POST'])
+@app.route('/blocks/<block_id>/children', methods=['POST'])
 @token_required
-def block_append(notion_token, block_id):
+def block_children_append(notion_token, block_id):
     try:
         notion_api = NotionApi(notion_token)
 
@@ -87,7 +87,7 @@ def block_view(notion_token, block_id):
 
 @app.route('/blocks/<block_id>/children', methods=['GET'])
 @token_required
-def block_children(notion_token, block_id):
+def block_children_view(notion_token, block_id):
     try:
         notion_api = NotionApi(notion_token)
 
