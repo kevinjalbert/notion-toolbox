@@ -93,7 +93,7 @@ def block_children(notion_token, block_id):
 
         children = notion_api.block_children(block_id)
 
-        return jsonify(children), 200
+        return jsonify(children=children), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
