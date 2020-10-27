@@ -1,4 +1,5 @@
 #!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
+from notionscripts.block_presenter import BlockPresenter
 
 from cachetools import cached
 
@@ -20,23 +21,19 @@ class NotionApi():
     def block_content(self, block_id):
         block = self.client().get_block(block_id)
 
-        return {"id": block.id, "title": block.title}
+        return BlockPresenter(block)
 
     def block_children(self, block_id):
         block = self.client().get_block(block_id)
 
-        content = []
-        for child in block.children:
-            content.append({"id": child.id, "title": child.title})
-
-        return content
+        return [BlockPresenter(child) for child in block.children]
 
     def block_append(self, block_id, data):
         block = self.client().get_block(block_id)
 
         new_block = block.children.add_new(TextBlock, title=data["title"])
 
-        return new_block
+        return BlockPresenter(new_block)
 
     def block_update(self, block_id, data):
         block = self.client().get_block(block_id)
@@ -45,28 +42,24 @@ class NotionApi():
             for key, val in data.items():
                 setattr(block, key, val)
 
-        return block
+        return BlockPresenter(block)
 
     def block_delete(self, block_id):
         block = self.client().get_block(block_id)
 
         block.remove()
 
-        return block
+        return BlockPresenter(block)
 
     def collection_view_content(self, collection_id, view_id):
         collection_view = self.__collection_view(collection_id, view_id)
         results = collection_view.default_query().execute()
 
-        content = []
-        for row in results:
-            content.append(row.get_all_properties())
-
-        return content
+        return [BlockPresenter(row) for row in results]
 
     def collection_append(self, collection_id, view_id, data):
         collection_view = self.__collection_view(collection_id, view_id)
 
         row = collection_view.collection.add_row(**data)
 
-        return row.get_all_properties()
+        return BlockPresenter(row)
