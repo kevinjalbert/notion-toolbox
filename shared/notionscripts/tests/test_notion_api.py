@@ -38,8 +38,8 @@ def test_block_append(notion_token):
     block = test_page.children.add_new(TextBlock, title="test block append")
     new_block = notion_api.block_append(block.id, {"title": "appending text"})
 
-    assert new_block.title == "appending text"
-    assert new_block.parent.id == block.id
+    assert new_block == {"id": new_block.block.id, "title": "appending text"}
+    assert new_block.block.parent.id == block.id
 
 
 def test_block_update_with_text_block(notion_token):
@@ -49,8 +49,7 @@ def test_block_update_with_text_block(notion_token):
     block = test_page.children.add_new(TextBlock, title="test block update")
     updated_block = notion_api.block_update(block.id, {"title": "test block has been updated"})
 
-    assert updated_block.title == "test block has been updated"
-    assert updated_block.id == block.id
+    assert updated_block == {"id": block.id, "title": "test block has been updated"}
 
 
 def test_block_update_with_collection_block(notion_token):
@@ -59,11 +58,9 @@ def test_block_update_with_collection_block(notion_token):
     collection_view = create_collection_view()
     block = collection_view.collection.add_row(name="test row", value=10, enabled=True)
 
-    updated_block = notion_api.block_update(block.id, {"title": "test block has been updated", "value": 5})
+    updated_block = notion_api.block_update(block.id, {"name": "test block has been updated", "value": 5})
 
-    assert updated_block.title == "test block has been updated"
-    assert updated_block.value == 5
-    assert updated_block.id == block.id
+    assert updated_block == {"id": block.id, "name": "test block has been updated", "value": 5, "category": None, "enabled": True, "tags": []}
 
 
 def test_block_delete_with_text_block(notion_token):
