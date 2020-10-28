@@ -28,8 +28,15 @@ def token_required(f):
     def decorated_function(*args, **kwargs):
         if 'notion_token' in request.headers:
             return f(request.headers['Notion-Token'], *args, **kwargs)
+        elif 'notion_token' in request.args:
+            return f(request.args['notion_token'], *args, **kwargs)
+        elif request.json is not None and 'notion_token' in request.json:
+            # Popping the notion_token field as it would effect some of the
+            # block updating as we use whole response for properties.
+            notion_token = request.json.pop('notion_token')
+            return f(notion_token, *args, **kwargs)
         else:
-            return 'Request is missing `Notion-Token` header (token_v2 from notion.so)', 401
+            return 'Request is missing `Notion-Token` header or `notion_token` in request body or `notion_token` in URL args.', 401
     return decorated_function
 
 
