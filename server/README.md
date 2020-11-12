@@ -1,42 +1,16 @@
 # notion-toolbox's server
 
-This is the server component that communicates with Notion's API via [notion-py](https://github.com/jamalex/notion-py). The functionality is to provide CRUD (Create Read Update Delete) operations for blocks and collections.
+> https://notion-server.herokuapp.com
+
+This is the server component that communicates with Notion's API via [notion-py](https://github.com/jamalex/notion-py). The functionality is to provide CRUD (Create Read Update Delete) operations for blocks and collections. The server performs actions using your provided Notion token. This is a public server, and if needed, rate limiting will be used as this server will be running on a free [Heroku](https://heroku.com/) dyno.
 
 ## Authentication
 
-This server expects a `Notion-Token` to be sent in the request headers. This will be your own `token_v2` from [Notion's cookies](https://www.notion.so/). This will allow you to access your own private content. Tokens are not to be logged or stored anywhere, although if you have concerns you can always host your own server component.
+By default, this server expects a `Notion-Token` to be sent in the request headers. This will be your own `token_v2` from [Notion's cookies](https://www.notion.so/). This will allow you to access your own private content. Tokens are not to be logged or stored anywhere, although if you have concerns you can always host your own server component.
 
-If needed, rate limiting will be used as this server will be running on a free [Heroku](https://heroku.com/) dyno.
+If needed you can also send a `notion_token` in the JSON body payload, or even as a query parameter. I will mention that using the query parameter approach will expose the token in the Heroku logs.
 
-## Endpoints
+## Endpoint Documentation
 
-As of right now the following endpoints exist:
+The endpoints are documented in a [Postman](https://www.postman.com/) collection. You can view the documentation online [here](https://documenter.getpostman.com/view/37310/TVYGdddF). There are free limitations to views, and thus if the monthly limit has been exceeded, you can import the documentation into your own instance of Postman using this [snapshot](https://www.postman.com/collections/9d5e9843e907c1820dcd).
 
-```python
-# Allows you to add a piece of text as a child of the specific block (i.e.,
-# nesting under a text block, or inside a page)
-@app.route('/blocks/<block_id>', methods=['POST'])
-
-# Allows you to update the specified block with new values from the JSON body. Text blocks
-# use "title", and collection rows (which are technically blocks) can also
-# specify other columns.
-@app.route('/blocks/<block_id>', methods=['PUT'])
-
-# Allows you to view the content of the specified block. It will take the block's title and
-# all of its children's titles and join them with newlines.
-@app.route('/blocks/<block_id>', methods=['GET'])
-
-# Allows you to delete the specified block. This also works for collection rows
-# as they are technically blocks
-@app.route('/blocks/<block_id>', methods=['DELETE'])
-
-# Allows you to append a new row onto the specificed collection view with the
-# values from the JSON body.
-@app.route('/collections/<collection_id>/<view_id>', methods=['POST'])
-
-# Allows you to view all the rows of the specified collection view with all the
-# column values present.
-@app.route('/collections/<collection_id>/<view_id>', methods=['GET'])
-```
-
-More documentation will follow shortly for these, although you can take a look at the source code for more details.
