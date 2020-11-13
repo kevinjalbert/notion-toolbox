@@ -1,5 +1,6 @@
 #!/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
 from notionscripts.block_presenter import BlockPresenter
+from notionscripts.already_deleted_error import AlreadyDeletedError
 
 from cachetools import cached
 
@@ -47,9 +48,11 @@ class NotionApi():
     def block_delete(self, block_id):
         block = self.client().get_block(block_id)
 
-        block.remove()
-
-        return BlockPresenter(block)
+        if block.alive:
+            block.remove()
+            return BlockPresenter(block)
+        else:
+            raise AlreadyDeletedError(block_id)
 
     def collection_view_content(self, collection_id, view_id):
         collection_view = self.__collection_view(collection_id, view_id)

@@ -1,4 +1,5 @@
 from notionscripts.notion_api import NotionApi
+from notionscripts.already_deleted_error import AlreadyDeletedError
 
 from .notion_api_page_helper import get_test_page, create_collection_view
 
@@ -85,6 +86,20 @@ def test_block_delete_with_collection_block(notion_token):
     notion_api.block_delete(block.id)
 
     assert block not in collection_view.collection.get_rows()
+
+
+def test_block_delete_an_already_deleted_block(notion_token):
+    notion_api = NotionApi(token=notion_token)
+    test_page = get_test_page()
+
+    block = test_page.children.add_new(TextBlock, title="test block delete")
+    parent_block = block.parent
+
+    notion_api.block_delete(block.id)
+    parent_block.refresh()
+
+    with pytest.raises(AlreadyDeletedError):
+        notion_api.block_delete(block.id)
 
 
 def test_collection_view_content(notion_token):
