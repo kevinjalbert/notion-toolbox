@@ -90,5 +90,6 @@ def create_collection_view():
     )
     cvb.title = "Test collection"
     view = cvb.views.add_new(view_type="table")
+    view.name = "Test view"
 
     return view

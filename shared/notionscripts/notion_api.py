@@ -27,7 +27,10 @@ class NotionApi():
     def block_children(self, block_id):
         block = self.client().get_block(block_id)
 
-        return [BlockPresenter(child) for child in block.children]
+        return {
+            "parent": BlockPresenter(block),
+            "children": [BlockPresenter(child) for child in block.children]
+        }
 
     def block_append(self, block_id, data):
         block = self.client().get_block(block_id)
@@ -58,7 +61,10 @@ class NotionApi():
         collection_view = self.__collection_view(collection_id, view_id)
         results = collection_view.default_query().execute()
 
-        return [BlockPresenter(row) for row in results]
+        return {
+            "collection": BlockPresenter(collection_view),
+            "rows": [BlockPresenter(row) for row in results]
+        }
 
     def collection_append(self, collection_id, view_id, data):
         collection_view = self.__collection_view(collection_id, view_id)

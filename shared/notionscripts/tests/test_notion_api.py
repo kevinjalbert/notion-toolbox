@@ -28,8 +28,9 @@ def test_block_children(notion_token):
 
     content = notion_api.block_children(block.id)
 
-    assert content[0] == {"id": child_block_1.id, "title": "child block 1"}
-    assert content[1] == {"id": child_block_2.id, "title": "child block 2"}
+    assert content["parent"] == {"id": block.id, "title": "a parent block"}
+    assert content["children"][0] == {"id": child_block_1.id, "title": "child block 1"}
+    assert content["children"][1] == {"id": child_block_2.id, "title": "child block 2"}
 
 
 def test_block_append(notion_token):
@@ -106,13 +107,19 @@ def test_collection_view_content(notion_token):
     notion_api = NotionApi(token=notion_token)
 
     collection_view = create_collection_view()
-    collection_id = collection_view.parent.id.replace("-", "")
-    view_id = collection_view.id.replace("-", "")
+    collection_id = collection_view.parent.id
+    view_id = collection_view.id
 
     collection_view.collection.add_row(name="test row")
-    collection_view_content = notion_api.collection_view_content(collection_id, view_id)
+    collection_view_content = notion_api.collection_view_content(collection_id.replace("-", ""), view_id.replace("-", ""))
 
-    assert collection_view_content[0]["name"] == "test row"
+    assert collection_view_content["collection"] == {
+        "collection_id": collection_id,
+        "view_id": view_id,
+        "collection_title": "Test collection",
+        "view_title": "Test view"
+    }
+    assert collection_view_content["rows"][0]["name"] == "test row"
 
 
 def test_collection_view_append(notion_token):
@@ -125,6 +132,6 @@ def test_collection_view_append(notion_token):
     notion_api.collection_append(collection_id, view_id, {"enabled": True, "value": 10, "name": "test row"})
     collection_view_content = notion_api.collection_view_content(collection_id, view_id)
 
-    assert collection_view_content[0]["name"] == "test row"
-    assert collection_view_content[0]["enabled"] is True
-    assert collection_view_content[0]["value"] == 10
+    assert collection_view_content["rows"][0]["name"] == "test row"
+    assert collection_view_content["rows"][0]["enabled"] is True
+    assert collection_view_content["rows"][0]["value"] == 10

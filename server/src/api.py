@@ -98,9 +98,9 @@ def block_children_view(notion_token, block_id):
     try:
         notion_api = NotionApi(notion_token)
 
-        children = notion_api.block_children(block_id)
+        content = notion_api.block_children(block_id)
 
-        return jsonify(children=children), 200
+        return jsonify(content), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
@@ -126,7 +126,7 @@ def collection_view(notion_token, collection_id, view_id):
 
         content = notion_api.collection_view_content(collection_id, view_id)
 
-        return jsonify(rows=content), 200
+        return jsonify(content), 200
     except Exception as error:
         return jsonify(error=str(error)), 500
 
