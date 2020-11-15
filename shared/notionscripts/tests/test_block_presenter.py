@@ -9,14 +9,18 @@ import json
 import pytest  # noqa, F401
 
 
+def clean_id(id):
+    return id.replace("-", "")
+
+
 def test_block_presentation(notion_token):
     test_page = get_test_page()
 
     block = test_page.children.add_new(TextBlock, title="textblock")
 
     assert BlockPresenter(block).block == block
-    assert BlockPresenter(block) == {"id": block.id, "title": "textblock"}
-    assert json.dumps(BlockPresenter(block)) == '{"id": "%s", "title": "textblock"}' % block.id
+    assert BlockPresenter(block) == {"id": clean_id(block.id), "title": "textblock"}
+    assert json.dumps(BlockPresenter(block)) == '{"id": "%s", "title": "textblock"}' % clean_id(block.id)
 
 
 def test_collection_row_block_presentation(notion_token):
@@ -24,5 +28,6 @@ def test_collection_row_block_presentation(notion_token):
     block = collection_view.collection.add_row(name="test row", value=10, enabled=True)
 
     assert BlockPresenter(block).block == block
-    assert BlockPresenter(block) == {"id": block.id, "enabled": True, "tags": [], "category": None, "value": 10, "name": "test row"}
-    assert json.dumps(BlockPresenter(block)) == '{"id": "%s", "enabled": true, "tags": [], "category": null, "value": 10, "name": "test row"}' % block.id
+    assert BlockPresenter(block) == {"id": clean_id(block.id), "enabled": True, "tags": [], "category": None, "value": 10, "name": "test row"}
+    assert json.dumps(BlockPresenter(
+        block)) == '{"id": "%s", "enabled": true, "tags": [], "category": null, "value": 10, "name": "test row"}' % clean_id(block.id)
