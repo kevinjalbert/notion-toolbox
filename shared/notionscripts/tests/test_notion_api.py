@@ -19,7 +19,7 @@ def test_block_content(notion_token):
     block = test_page.children.add_new(TextBlock, title="test get block content")
     content = notion_api.block_content(block.id)
 
-    assert content == {"id": clean_id(block.id), "title": "test get block content"}
+    assert content == {"id": clean_id(block.id), "block_type": "text", "title": "test get block content"}
 
 
 def test_block_children(notion_token):
@@ -32,9 +32,9 @@ def test_block_children(notion_token):
 
     content = notion_api.block_children(block.id)
 
-    assert content["parent"] == {"id": clean_id(block.id), "title": "a parent block"}
-    assert content["children"][0] == {"id": clean_id(child_block_1.id), "title": "child block 1"}
-    assert content["children"][1] == {"id": clean_id(child_block_2.id), "title": "child block 2"}
+    assert content["parent"] == {"id": clean_id(block.id), "block_type": "text", "title": "a parent block"}
+    assert content["children"][0] == {"id": clean_id(child_block_1.id), "block_type": "text", "title": "child block 1"}
+    assert content["children"][1] == {"id": clean_id(child_block_2.id), "block_type": "text", "title": "child block 2"}
 
 
 def test_block_append(notion_token):
@@ -44,7 +44,7 @@ def test_block_append(notion_token):
     block = test_page.children.add_new(TextBlock, title="test block append")
     new_block = notion_api.block_append(block.id, {"title": "appending text"})
 
-    assert new_block == {"id": clean_id(new_block.block.id), "title": "appending text"}
+    assert new_block == {"id": clean_id(new_block.block.id), "block_type": "text", "title": "appending text"}
     assert clean_id(new_block.block.parent.id) == clean_id(block.id)
 
 
@@ -55,7 +55,7 @@ def test_block_update_with_text_block(notion_token):
     block = test_page.children.add_new(TextBlock, title="test block update")
     updated_block = notion_api.block_update(block.id, {"title": "test block has been updated"})
 
-    assert updated_block == {"id": clean_id(block.id), "title": "test block has been updated"}
+    assert updated_block == {"id": clean_id(block.id), "block_type": "text", "title": "test block has been updated"}
 
 
 def test_block_update_with_collection_block(notion_token):
@@ -66,7 +66,8 @@ def test_block_update_with_collection_block(notion_token):
 
     updated_block = notion_api.block_update(block.id, {"name": "test block has been updated", "value": 5})
 
-    assert updated_block == {"id": clean_id(block.id), "name": "test block has been updated", "value": 5, "category": None, "enabled": True, "tags": []}
+    assert updated_block == {"id": clean_id(block.id), "block_type": "page", "name": "test block has been updated",
+                             "value": 5, "category": None, "enabled": True, "tags": []}
 
 
 def test_block_delete_with_text_block(notion_token):
