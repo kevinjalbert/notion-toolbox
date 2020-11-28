@@ -20,7 +20,9 @@ The following tools are available. Each tool has a README file present in its co
   - Provides a REST API to perform CRUD operations with blocks and collections
   - Useful to connect with webhooks (e.g., IFTTT)
   - Opens integrations with Google Assistant, iOS Shortcuts, and Android Tasker
-
+- [iOS Widget](ios_widget/)
+  - A [Scriptable](https://scriptable.app/) widget that provides basic functionality for viewing/creating/deleting Notion blocks using iOS Shortcuts
+  - Works well for Notion pages and collections
 
 ## History of this Repository
 <details>
