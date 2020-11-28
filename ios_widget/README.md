@@ -2,13 +2,13 @@
 
 This is a [Scriptable](https://scriptable.app/) widget that provides basic functionality for viewing/creating/deleting Notion blocks using iOS Shortcuts.
 
-![](./images/widget.jpeg)
+<img src="./images/widget.jpeg" width="50%">
 
 # Demo
 
 I announced and released this on [my blog in this article](https://kevinjalbert.com/custom-notion-ios-widget/). A full demo of the widget is presented in the following YouTube video.
 
-<div align="left">
+<div align="centre">
       <a href="https://www.youtube.com/watch?v=atq6u7Le1JE">
          <img src="https://img.youtube.com/vi/atq6u7Le1JE/0.jpg" style="width:70%;">
       </a>
@@ -26,7 +26,7 @@ To use this widget you have to do the following:
 
 4. Install [Data Jar](https://datajar.app/) on iOS your iOS device (this is optional if you want to hardcode the notion token in the iOS Shortcuts) and put the `token_v2` value under a new `notion_token` text key.
 
-5. Create a new script (`Notion Block View`) in Scriptable with the contents in this [file](./Notion\ Block\ View.js) and replace the `NOTION_TOKEN` with your `token_v2` value (and maybe the server url if you decided to use your own)
+5. Create a new script (`Notion Block View`) in Scriptable with the contents in this [file](./Notion%20Block%20View.js) and replace the `NOTION_TOKEN` with your `token_v2` value (and maybe the server url if you decided to use your own)
 
 6. Add a Scriptable widget on your homescreen in iOS
 
