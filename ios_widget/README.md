@@ -2,7 +2,7 @@
 
 This is a [Scriptable](https://scriptable.app/) widget that provides basic functionality for viewing/creating/deleting Notion blocks using iOS Shortcuts.
 
-<img src="./images/widget.jpeg" width="50%">
+<img src="./images/widget.jpg" width="50%">
 
 # Demo
 
