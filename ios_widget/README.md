@@ -1,47 +1,48 @@
 # Scriptable -- Notion Block View
 
-This is a [Scriptable](https://scriptable.app/) widget that provides basic functionality for viewing/creating/deleting Notion blocks using iOS Shortcuts.
+This is a [Scriptable](https://scriptable.app/) widget that provides basic functionality for viewing/creating/deleting Notion blocks.
 
-<img src="./images/widget.jpeg" width="50%">
+<img src="./images/widget.jpg" width="100%">
 
-# Demo
+# Make README md 1611a8ff3dd64c2aae3124a5822142a2
 
-I announced and released this on [my blog in this article](https://kevinjalbert.com/custom-notion-ios-widget/). A full demo of the widget is presented in the following YouTube video.
+# Description
 
-<div align="centre">
-      <a href="https://www.youtube.com/watch?v=atq6u7Le1JE">
-         <img src="https://img.youtube.com/vi/atq6u7Le1JE/0.jpg" style="width:70%;">
-      </a>
-</div>
+This repository contains code and short instructions for creating a widget filled with data from your database in Notion.
 
-## Installation
+«Scriptable» automatically updates the information inside the widget every 5-7 minutes.
 
-To use this widget you have to do the following:
+## Brief description of the widget features:
 
-1. Acquire your `token_v2` from [Notion's web application](https://www.notion.so/).
+1. Clicking on a widget - when clicked launches a main script branch that launches the Notion app
+2. Text strings - contain text from one of the fields in your Notion database. When you click on the text, a branch of the main script is called, which opens the corresponding page in Notion
+3. Circle before each entry - calls a script that transfers the task to the final status (for example: Done)
+4. Square with a handle - The button calls Alert, with which you can create a task in the initial status.
+5. Round Arrow - Forces a widget refresh.
 
-2. (Optional) have your own [notion-toolbox server](../server) running (if the security concern of sending your token to my server scares you)
+# Installation
 
-3. Install [Scriptable](https://scriptable.app/) on your iOS device
-
-4. Install [Data Jar](https://datajar.app/) on iOS your iOS device (this is optional if you want to hardcode the notion token in the iOS Shortcuts) and put the `token_v2` value under a new `notion_token` text key.
-
-5. Create a new script (`Notion Block View`) in Scriptable with the contents in this [file](./Notion%20Block%20View.js) and replace the `NOTION_TOKEN` with your `token_v2` value (and maybe the server url if you decided to use your own)
-
-6. Add a Scriptable widget on your homescreen in iOS
-
-    6a. Configure the widget's _Script_ to be `Notion Block View`
-
-    6b. Configure the widget's _When Interacting_ to be `Run Script`
-
-    6c. Configure the widget's _Parameter_ to be a Notion link for a page/collection
-
-7. Create the following iOS Shortcuts on your device (names are important and case-sensitive), you might have to change some things based on the server URL and usage of Data Jar:
-
-    7a. [Append to Notion Block (image)](./images/shortcut-append.jpeg)
-
-    7b. [Delete Notion Block (image)](./images/shortcut-delete.jpeg)
-
-    7c. [Refresh Notion Block (image)](./images/shortcut-refresh.jpeg)
-
-8. Enjoy
+1. Create a new database or use [my template](https://www.notion.so/77bcd7e231d84566a2959e6abea33c2d).
+    1. It should be understood that the database may have:
+        1. Other structure
+        2. Other field names
+        3. Status names
+        4. And so on.
+    2. To do this, you will need to change the corresponding lines in the script code.
+2. Follow the steps from [this instruction](https://developers.notion.com/docs)
+    1. At this step, it is important to save
+        1. Your API Token
+        2. Your Database ID
+3. [Install Scriptable](https://apps.apple.com/ru/app/scriptable/id1405459188) from the App Store 
+4. Create 3 scripts in Scriptable (names are important and case-sensitive)
+    1. [to-do](https://github.com/homerostov/notion-toolbox/blob/master/ios_widget/to_do.js)
+    2. [task_done](https://github.com/homerostov/notion-toolbox/blob/master/ios_widget/task_done.js)
+    3. [new_task](https://github.com/homerostov/notion-toolbox/blob/master/ios_widget/new_task.js)
+5. Go to [to_do](https://github.com/homerostov/notion-toolbox/blob/master/ios_widget/to_do.js#:~:text=let%20notion_token%20%3D-,%3CYour_notion_token%3E,-%3B) script and paste your Token Notion API
+6. Add widget
+    1. Call the menu for changing the widget and specify the following parameters
+        1. Script: to_do
+        2. When interacting: Run Script
+        3. Parameter: [Your Database ID]
+    2. Click Done
+7. After a few seconds, the widget will update and display pages from your Notion database
